@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GrupalPokemon</string>
+    <string name="noseleccion">Selecciona un campo de tu equipo</string>
 </resources>
