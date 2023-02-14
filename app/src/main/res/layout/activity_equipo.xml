@@ -6,4 +6,113 @@
     android:layout_height="match_parent"
     tools:context=".Vistas.Equipo">
 
+    <TextView
+        android:id="@+id/pokemon1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:text="TextView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="97dp" />
+
+    <TextView
+        android:id="@+id/pokemon2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/pokemon1"
+        tools:layout_editor_absoluteX="97dp" />
+
+    <TextView
+        android:id="@+id/pokemon3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/pokemon2"
+        tools:layout_editor_absoluteX="97dp" />
+
+    <TextView
+        android:id="@+id/pokemon4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/pokemon3"
+        tools:layout_editor_absoluteX="97dp" />
+
+    <TextView
+        android:id="@+id/pokemon5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/pokemon4"
+        tools:layout_editor_absoluteX="97dp" />
+
+    <TextView
+        android:id="@+id/pokemon6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/pokemon5"
+        tools:layout_editor_absoluteX="97dp" />
+
+    <RadioButton
+        android:id="@+id/rb1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="227dp"
+        tools:layout_editor_absoluteY="90dp" />
+
+    <RadioButton
+        android:id="@+id/rb2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RadioButton"
+        tools:layout_editor_absoluteX="227dp"
+        tools:layout_editor_absoluteY="36dp" />
+
+    <RadioButton
+        android:id="@+id/rb3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RadioButton"
+        tools:layout_editor_absoluteX="227dp"
+        tools:layout_editor_absoluteY="317dp" />
+
+    <RadioButton
+        android:id="@+id/rb4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RadioButton"
+        tools:layout_editor_absoluteX="227dp"
+        tools:layout_editor_absoluteY="259dp" />
+
+    <RadioButton
+        android:id="@+id/rb5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RadioButton"
+        tools:layout_editor_absoluteX="227dp"
+        tools:layout_editor_absoluteY="199dp" />
+
+    <RadioButton
+        android:id="@+id/rb6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RadioButton"
+        tools:layout_editor_absoluteX="227dp"
+        tools:layout_editor_absoluteY="144dp" />
+
+    <ImageView
+        android:id="@+id/boton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="434dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
