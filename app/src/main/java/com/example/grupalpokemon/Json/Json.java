@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import com.example.grupalpokemon.Modelos.Pokemon;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import java.io.BufferedReader;
@@ -46,7 +45,7 @@ public class Json extends AsyncTask<String, Void, String> {
         }
     }
 
-    public interface DownloadJSONCallback{
+    public interface DownloadJSONCallback {
         void onDownloadJSONComplete(String result);
     }
 
@@ -59,26 +58,40 @@ public class Json extends AsyncTask<String, Void, String> {
         //Guardar el json entero
         JsonArray jsonObject = gson.fromJson(result, JsonArray.class);
 
-        JsonElement jsonElement = jsonObject;
+        //JsonElement jsonElement = jsonObject;
 
         //añadir todos los datos de result en una lista
-        JsonArray lista = jsonElement.getAsJsonArray();
+        JsonArray lista = jsonObject.getAsJsonArray();
 
         //Guarda en un arraylist de tipo JsonObject todos los results
         List<JsonObject> objeto = new ArrayList<>();
-        for(int i = 0; i < lista.size(); i++){
+        for (int i = 0; i < lista.size(); i++) {
             objeto.add((JsonObject) lista.get(i));
         }
-        //Crear todas las listas de las variables que contiene el Json
-
-        List<JsonObject> geometries = new ArrayList<>();
-        List<JsonObject> guardias = new ArrayList<>();
 
         //Guardar todos los datos del JSON en variables y añadirlas a un objeto de nuestra clase
 
-        for(int p = 0; p < objeto.size(); p++){
+        List<JsonObject> names = new ArrayList<>();
+        List<JsonObject> bases = new ArrayList<>();
+        List<JsonArray> types = new ArrayList<>();
+        for (int p = 0; p < objeto.size(); p++) {
+            names.add((JsonObject) objeto.get(p).get("name"));
+            bases.add((JsonObject) objeto.get(p).get("base"));
+            types.add((JsonArray) objeto.get(p).get("type"));
+
+            if (types.get(p).size() == 1) {
+                objpokemon.add(new Pokemon(Integer.parseInt(String.valueOf(objeto.get(p).get("id"))), String.valueOf(names.get(p).get("english")),
+                        String.valueOf(types.get(p).get(0)), String.valueOf(bases.get(p).get("HP")),
+                        String.valueOf(bases.get(p).get("Attack")), String.valueOf(bases.get(p).get("Defense")), String.valueOf(bases.get(p).get("Sp. Attack")),
+                        String.valueOf(bases.get(p).get("Sp. Defense")), String.valueOf(bases.get(p).get("Speed"))));
+            } else if (types.get(p).size() == 2) {
+                objpokemon.add(new Pokemon(Integer.parseInt(String.valueOf(objeto.get(p).get("id"))), String.valueOf(names.get(p).get("english")),
+                        String.valueOf(types.get(p).get(0)), String.valueOf(types.get(p).get(1)), String.valueOf(bases.get(p).get("HP")),
+                        String.valueOf(bases.get(p).get("Attack")), String.valueOf(bases.get(p).get("Defense")), String.valueOf(bases.get(p).get("Sp. Attack")),
+                        String.valueOf(bases.get(p).get("Sp. Defense")), String.valueOf(bases.get(p).get("Speed"))));
+            }
 
         }
     }
-
 }
+
