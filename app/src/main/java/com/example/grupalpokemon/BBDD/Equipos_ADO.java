@@ -50,31 +50,26 @@ public class Equipos_ADO implements AutoCloseable{
         helper.getWritableDatabase().insert("equipo",null,valores);
     }
 
-    public List<EquipoModelo> getAll(){
+    public List<String> getAll(){
         String sql = "SELECT * FROM equipo";
         Cursor cursor = db.rawQuery(sql,null);
 
         equipoLocal.clear();
+
+        List<String> pokeEquipo = new ArrayList<>();
         
         while(cursor.moveToNext()){
 
-            EquipoModelo pokeEquipo = new EquipoModelo();
+            pokeEquipo.set(0, cursor.getString(0));
+            pokeEquipo.set(1, cursor.getString(1));
+            pokeEquipo.set(2, cursor.getString(2));
+            pokeEquipo.set(3, cursor.getString(3));
+            pokeEquipo.set(4, cursor.getString(4));
+            pokeEquipo.set(5, cursor.getString(5));
 
-            pokeEquipo.setId(cursor.getInt(0));
-            pokeEquipo.set(cursor.getString(1));
-            pokeEquipo.setType1(cursor.getString(2));
-            pokeEquipo.setType2(cursor.getString(3));
-            pokeEquipo.setHp(cursor.getString(4));
-            pokeEquipo.setAttack(cursor.getString(5));
-            pokeEquipo.setDefense(cursor.getString(6));
-            pokeEquipo.setSpattack(cursor.getString(7));
-            pokeEquipo.setSpdefense(cursor.getString(8));
-            pokeEquipo.setSpeed(cursor.getString(9));
-
-            equipoLocal.add(pokeEquipo);
         }
 
-        return equipoLocal;
+        return pokeEquipo;
     }
 
 
