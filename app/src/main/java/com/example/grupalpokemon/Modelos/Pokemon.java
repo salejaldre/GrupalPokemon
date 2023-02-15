@@ -12,6 +12,9 @@ public class Pokemon {
     String spdefense;
     String speed;
 
+    public Pokemon() {
+    }
+
     public Pokemon(int id, String name, String type1, String hp, String attack, String defense, String spattack, String spdefense, String speed) {
         this.id = id;
         this.name = name;
