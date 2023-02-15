@@ -35,16 +35,16 @@ public class Equipos_ADO implements AutoCloseable{
                 "pokemon6 TEXT)");
     }
 
-    public void insertar(List<EquipoModelo> equipopokemon){
+    public void insertar(List<String> equipopokemon){
 
         ContentValues valores = new ContentValues();
 
-        valores.put("pokemon1",equipopokemon.get(0).getPokemon1().getName());
-        valores.put("pokemon2",equipopokemon.get(1).getPokemon2().getName());
-        valores.put("pokemon3",equipopokemon.get(2).getPokemon3().getName());
-        valores.put("pokemon4",equipopokemon.get(3).getPokemon4().getName());
-        valores.put("pokemon5",equipopokemon.get(4).getPokemon5().getName());
-        valores.put("pokemon6",equipopokemon.get(5).getPokemon6().getName());
+        valores.put("pokemon1",equipopokemon.get(0));
+        valores.put("pokemon2",equipopokemon.get(1));
+        valores.put("pokemon3",equipopokemon.get(2));
+        valores.put("pokemon4",equipopokemon.get(3));
+        valores.put("pokemon5",equipopokemon.get(4));
+        valores.put("pokemon6",equipopokemon.get(5));
         
 
         helper.getWritableDatabase().insert("equipo",null,valores);
