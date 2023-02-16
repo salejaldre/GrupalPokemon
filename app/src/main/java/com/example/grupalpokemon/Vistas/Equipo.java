@@ -5,6 +5,7 @@ import static com.example.grupalpokemon.Json.Json.objpokemon;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -28,7 +29,7 @@ public class Equipo extends AppCompatActivity {
     static TextView pkmn3;
     static TextView pkmn4;
     static TextView pkmn5;
-    static  TextView pkmn6;
+    static TextView pkmn6;
     RadioButton rb1;
     RadioButton rb2;
     RadioButton rb3;
@@ -51,13 +52,9 @@ public class Equipo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_equipo);
 
-
         iniciarlabels();
-
         borrarequipos();
-
         listaequipos();
-
         cargarequipo();
 
     btnguardar.setOnClickListener(v->{
@@ -123,20 +120,20 @@ public class Equipo extends AppCompatActivity {
         pkmn6.setText(equipolocal.get(5).getName());
    }
 
-    public static void mensaje(String ms){
-       Toast.makeText(this, ms, Toast.LENGTH_SHORT).show();
+    public static void mensaje(String ms, Context context){
+       Toast.makeText(context, ms, Toast.LENGTH_SHORT).show();
    }
 
     private boolean comprobar() {
 
               if(comprobarseleccion(rb1)){seleccionado = pkmn1.getText().toString();posicion = 0;}
         else  if(comprobarseleccion(rb2)){seleccionado = pkmn2.getText().toString();posicion = 1;}
-        else  if(comprobarseleccion(rb3)){seleccionado=pkmn3.getText().toString();posicion = 2;}
-        else  if(comprobarseleccion(rb4)){seleccionado=pkmn4.getText().toString();posicion = 3;}
-        else  if(comprobarseleccion(rb5)){seleccionado=pkmn5.getText().toString();posicion = 4;}
-        else  if(comprobarseleccion(rb6)){seleccionado=pkmn6.getText().toString();posicion = 5;}
+        else  if(comprobarseleccion(rb3)){seleccionado = pkmn3.getText().toString();posicion = 2;}
+        else  if(comprobarseleccion(rb4)){seleccionado = pkmn4.getText().toString();posicion = 3;}
+        else  if(comprobarseleccion(rb5)){seleccionado = pkmn5.getText().toString();posicion = 4;}
+        else  if(comprobarseleccion(rb6)){seleccionado = pkmn6.getText().toString();posicion = 5;}
         else{
-            mensaje(getString(R.string.noseleccion));
+            mensaje(getString(R.string.noseleccion),this);
             return false;
               }
         return true;
