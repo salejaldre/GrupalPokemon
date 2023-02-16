@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.grupalpokemon.BBDD.Equipos_ADO;
+import com.example.grupalpokemon.BBDD.Pokemon_ADO;
 import com.example.grupalpokemon.Controladores.Controlador_AlertDialog;
 import com.example.grupalpokemon.Modelos.EquipoModelo;
 import com.example.grupalpokemon.Modelos.Pokemon;
@@ -22,26 +23,28 @@ import java.util.List;
 
 public class Equipo extends AppCompatActivity {
 
-     TextView pkmn1;
-     TextView pkmn2;
-     TextView pkmn3;
-     TextView pkmn4;
-     TextView pkmn5;
-     TextView pkmn6;
-     RadioButton rb1;
-     RadioButton rb2;
-     RadioButton rb3;
-     RadioButton rb4;
-     RadioButton rb5;
-     RadioButton rb6;
-     public static String seleccionado;
-     public static int posicion=0;
-     public static ArrayList<Pokemon> equipolocal;
-     public static List<String> nombrecitos;
-     ImageView btn;
-     ImageView btnborrar;
-     ImageView btnguardar;
-     Equipos_ADO ado = new Equipos_ADO(this);
+    static TextView pkmn1;
+    static TextView pkmn2;
+    static TextView pkmn3;
+    static TextView pkmn4;
+    static TextView pkmn5;
+    static  TextView pkmn6;
+    RadioButton rb1;
+    RadioButton rb2;
+    RadioButton rb3;
+    RadioButton rb4;
+    RadioButton rb5;
+    RadioButton rb6;
+    public static String seleccionado;
+    public static int posicion;
+    public static ArrayList<Pokemon> equipolocal;
+    public static List<String> nombrecitos;
+    ImageView btn;
+    ImageView btnborrar;
+    ImageView btnguardar;
+    Equipos_ADO ado ;
+    Pokemon_ADO adop;
+    public static  ArrayList<Pokemon> listadepokemons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,13 +55,13 @@ public class Equipo extends AppCompatActivity {
         iniciarlabels();
 
         borrarequipos();
-        nombrecitos = ado.getAll();
+
         listaequipos();
 
         cargarequipo();
 
-        btnguardar.setOnClickListener(v->{
-    ArrayList<String> guardarnombre = null;
+    btnguardar.setOnClickListener(v->{
+        ArrayList<String> guardarnombre = null;
            guardarnombre.add(pkmn1.getText().toString());
            guardarnombre.add(pkmn2.getText().toString());
            guardarnombre.add(pkmn3.getText().toString());
@@ -71,7 +74,7 @@ public class Equipo extends AppCompatActivity {
 
        btnborrar.setOnClickListener(v->{
            borrarequipos();
-           cargarequipo();
+
        });
 
     btn.setOnClickListener(v->{
@@ -79,6 +82,7 @@ public class Equipo extends AppCompatActivity {
    if(comprobar()){
        Controlador_AlertDialog conta = new Controlador_AlertDialog();
        conta.mostraralerta(this);
+
    }
     });
 
@@ -88,10 +92,10 @@ public class Equipo extends AppCompatActivity {
 
     for(int q=0;q<nombrecitos.size();q++){
         String poknom = nombrecitos.get(q);
-        for(int p=0;p<objpokemon.size();p++){
-            if(objpokemon.get(q).getName().equals(poknom)){
+        for(int p=0;p<listadepokemons.size();p++){
+            if(listadepokemons.get(q).getName().equals(poknom)){
 
-                equipolocal.add(q,objpokemon.get(q));
+                equipolocal.add(q,listadepokemons.get(q));
                 equipolocal.remove(q+1);
                 }
             }
@@ -99,7 +103,7 @@ public class Equipo extends AppCompatActivity {
     }
 
     private void borrarequipos() {
-        //equipolocal.ensureCapacity(7);
+
         equipolocal.add(new Pokemon(1000,"Pokemon1","tipo","0","0","0","0","0","0"));
         equipolocal.add(new Pokemon(1001,"Pokemon2","tipo","0","0","0","0","0","0"));
         equipolocal.add(new Pokemon(1002,"Pokemon3","tipo","0","0","0","0","0","0"));
@@ -109,7 +113,7 @@ public class Equipo extends AppCompatActivity {
 
     }
 
-    public void cargarequipo(){
+    public static void cargarequipo(){
 
         pkmn1.setText(equipolocal.get(0).getName());
         pkmn2.setText(equipolocal.get(1).getName());
@@ -119,18 +123,18 @@ public class Equipo extends AppCompatActivity {
         pkmn6.setText(equipolocal.get(5).getName());
    }
 
-    private void mensaje(String ms){
+    public static void mensaje(String ms){
        Toast.makeText(this, ms, Toast.LENGTH_SHORT).show();
    }
 
     private boolean comprobar() {
 
-              if(comprobarseleccion(rb1)){seleccionado.equals(pkmn1.getText().toString());posicion = 1;}
-        else  if(comprobarseleccion(rb2)){seleccionado.equals(pkmn2.getText().toString());posicion = 2;}
-        else  if(comprobarseleccion(rb3)){seleccionado.equals(pkmn3.getText().toString());posicion = 3;}
-        else  if(comprobarseleccion(rb4)){seleccionado.equals(pkmn4.getText().toString());posicion = 4;}
-        else  if(comprobarseleccion(rb5)){seleccionado.equals(pkmn5.getText().toString());posicion = 5;}
-        else  if(comprobarseleccion(rb6)){seleccionado.equals(pkmn6.getText().toString());posicion = 6;}
+              if(comprobarseleccion(rb1)){seleccionado = pkmn1.getText().toString();posicion = 0;}
+        else  if(comprobarseleccion(rb2)){seleccionado = pkmn2.getText().toString();posicion = 1;}
+        else  if(comprobarseleccion(rb3)){seleccionado=pkmn3.getText().toString();posicion = 2;}
+        else  if(comprobarseleccion(rb4)){seleccionado=pkmn4.getText().toString();posicion = 3;}
+        else  if(comprobarseleccion(rb5)){seleccionado=pkmn5.getText().toString();posicion = 4;}
+        else  if(comprobarseleccion(rb6)){seleccionado=pkmn6.getText().toString();posicion = 5;}
         else{
             mensaje(getString(R.string.noseleccion));
             return false;
@@ -156,8 +160,14 @@ public class Equipo extends AppCompatActivity {
         btnborrar = findViewById(R.id.botonborrar);
         btnguardar = findViewById(R.id.botonguardar);
 
-
-
+        ado = new Equipos_ADO(this);
+        equipolocal = new ArrayList<>();
+        nombrecitos = new ArrayList<>();
+        posicion=0;
+        seleccionado="";
+        adop = new Pokemon_ADO(this);
+        listadepokemons = (ArrayList<Pokemon>) adop.getAll();
+        nombrecitos = ado.getAll();
    }
 
 }
