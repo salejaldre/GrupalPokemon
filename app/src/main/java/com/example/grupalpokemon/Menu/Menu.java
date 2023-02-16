@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.grupalpokemon.R;
+
 public class Menu extends AppCompatActivity {
 
     @Override
