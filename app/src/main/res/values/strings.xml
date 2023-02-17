@@ -3,4 +3,8 @@
     <string name="noseleccion">Selecciona un campo de tu equipo</string>
     <string name="añadido">Pokemon agregado al Equipo</string>
     <string name="noencontrado">Pokemon no encontrado</string>
+    <string name="textouno">Hola, soy el Profesor Pokemon,<br/> he encargado al mejor equipo de desarrolladores de Android<br/>
+                                una aplicacion para entrenadores Pokemon</string>
+    <string name="textodos">Esta aplicacion permitira a los entrenadores mirar<br/> los datos de los pokemon y hacerse un equipo a su gusto</string>
+    <string name="textotres">Muchas gracias a los desarrolladores :<br/> Sergio Alejaldre,<br/> Diego Urmente,<br/>Guillermo Fabian, <br/>Josemi y Daniel Gimenez</string>
 </resources>
