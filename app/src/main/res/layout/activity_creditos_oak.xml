@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fondito"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/oak1"
+    tools:context=".Vistas.Creditos_Oak">
 
+    <ImageView
+        android:id="@+id/oaksiguiente"
+        android:layout_width="88dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texto"
+        app:layout_constraintVertical_bias="0.194"
+        app:srcCompat="@drawable/flecharojados"
+        tools:srcCompat="@drawable/flecharojados" />
+
+    <TextView
+        android:id="@+id/texto"
+        android:layout_width="389dp"
+        android:layout_height="wrap_content"
+        android:background="#E2EDEAEA"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TextView"
+        android:textColor="#ED9F2C"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.741" />
 </androidx.constraintlayout.widget.ConstraintLayout>
