@@ -15,14 +15,18 @@ import android.widget.Toast;
 import com.example.grupalpokemon.BBDD.Equipos_ADO;
 import com.example.grupalpokemon.BBDD.Pokemon_ADO;
 import com.example.grupalpokemon.Controladores.Controlador_AlertDialog;
+import com.example.grupalpokemon.Menu.Menu;
 import com.example.grupalpokemon.Modelos.EquipoModelo;
 import com.example.grupalpokemon.Modelos.Pokemon;
 import com.example.grupalpokemon.R;
+import com.example.grupalpokemon.Sonidos.Sonidos;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
-public class Equipo extends AppCompatActivity {
+public class Equipo extends Menu {
 
     static TextView pkmn1;
     static TextView pkmn2;
@@ -43,6 +47,7 @@ public class Equipo extends AppCompatActivity {
     ImageView btn;
     ImageView btnborrar;
     ImageView btnguardar;
+    ImageView btnrandom;
     Equipos_ADO ado ;
     Pokemon_ADO adop;
     public static  ArrayList<Pokemon> listadepokemons;
@@ -57,8 +62,14 @@ public class Equipo extends AppCompatActivity {
         listaequipos();
         cargarequipo();
 
+    btnrandom.setOnClickListener(v->{
+        if(comprobar()){ pokemonrandom();}
+
+    });
+
     btnguardar.setOnClickListener(v->{
-        ArrayList<String> guardarnombre = null;
+        Sonidos.crearsonido(this,"guardar");
+        ArrayList<String> guardarnombre= new ArrayList<>();
            guardarnombre.add(pkmn1.getText().toString());
            guardarnombre.add(pkmn2.getText().toString());
            guardarnombre.add(pkmn3.getText().toString());
@@ -67,10 +78,12 @@ public class Equipo extends AppCompatActivity {
            guardarnombre.add(pkmn6.getText().toString());
     ado.insertar(guardarnombre);
 
+
         });
 
        btnborrar.setOnClickListener(v->{
            borrarequipos();
+           cargarequipo();
 
        });
 
@@ -84,6 +97,14 @@ public class Equipo extends AppCompatActivity {
     });
 
    }
+
+    private void pokemonrandom() {
+
+        ArrayList<Pokemon> pokerandoms =listadepokemons;
+        Collections.shuffle(pokerandoms);
+        equipolocal.set(posicion,pokerandoms.get(0));
+        cargarequipo();
+    }
 
     private void listaequipos() {
 
@@ -101,12 +122,12 @@ public class Equipo extends AppCompatActivity {
 
     private void borrarequipos() {
 
-        equipolocal.add(new Pokemon(1000,"Pokemon1","tipo","0","0","0","0","0","0"));
-        equipolocal.add(new Pokemon(1001,"Pokemon2","tipo","0","0","0","0","0","0"));
-        equipolocal.add(new Pokemon(1002,"Pokemon3","tipo","0","0","0","0","0","0"));
-        equipolocal.add(new Pokemon(1003,"Pokemon4","tipo","0","0","0","0","0","0"));
-        equipolocal.add(new Pokemon(1004,"Pokemon5","tipo","0","0","0","0","0","0"));
-        equipolocal.add(new Pokemon(1005,"Pokemon6","tipo","0","0","0","0","0","0"));
+        equipolocal.add(0,new Pokemon(1000,"Pokemon1","tipo","0","0","0","0","0","0"));
+        equipolocal.add(1,new Pokemon(1001,"Pokemon2","tipo","0","0","0","0","0","0"));
+        equipolocal.add(2,new Pokemon(1002,"Pokemon3","tipo","0","0","0","0","0","0"));
+        equipolocal.add(3,new Pokemon(1003,"Pokemon4","tipo","0","0","0","0","0","0"));
+        equipolocal.add(4,new Pokemon(1004,"Pokemon5","tipo","0","0","0","0","0","0"));
+        equipolocal.add(5,new Pokemon(1005,"Pokemon6","tipo","0","0","0","0","0","0"));
 
     }
 
@@ -153,9 +174,11 @@ public class Equipo extends AppCompatActivity {
         rb4 = findViewById(R.id.rb4);
         rb5 = findViewById(R.id.rb5);
         rb6 = findViewById(R.id.rb6);
+
         btn = findViewById(R.id.boton);
         btnborrar = findViewById(R.id.botonborrar);
         btnguardar = findViewById(R.id.botonguardar);
+        btnrandom = findViewById(R.id.botonrandom);
 
         ado = new Equipos_ADO(this);
         equipolocal = new ArrayList<>();
