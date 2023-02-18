@@ -1,6 +1,8 @@
 package com.example.grupalpokemon.Modelos;
 
-public class Pokemon {
+import java.io.Serializable;
+
+public class Pokemon implements Serializable {
     int id;
     String name;
     String type1;
@@ -11,11 +13,12 @@ public class Pokemon {
     String spattack;
     String spdefense;
     String speed;
+    String url;
 
     public Pokemon() {
     }
 
-    public Pokemon(int id, String name, String type1, String hp, String attack, String defense, String spattack, String spdefense, String speed) {
+    public Pokemon(int id, String name, String type1, String hp, String attack, String defense, String spattack, String spdefense, String speed,  String url) {
         this.id = id;
         this.name = name;
         this.type1 = type1;
@@ -25,9 +28,10 @@ public class Pokemon {
         this.spattack = spattack;
         this.spdefense = spdefense;
         this.speed = speed;
+        this.url = url;
     }
 
-    public Pokemon(int id, String name, String type1, String type2, String hp, String attack, String defense, String spattack, String spdefense, String speed) {
+    /*public Pokemon(int id, String name, String type1, String type2, String hp, String attack, String defense, String spattack, String spdefense, String speed) {
         this.id = id;
         this.name = name;
         this.type1 = type1;
@@ -38,6 +42,20 @@ public class Pokemon {
         this.spattack = spattack;
         this.spdefense = spdefense;
         this.speed = speed;
+    }*/
+
+    public Pokemon(int id, String name, String type1, String type2, String hp, String attack, String defense, String spattack, String spdefense, String speed,  String url) {
+        this.id = id;
+        this.name = name;
+        this.type1 = type1;
+        this.type2 = type2;
+        this.hp = hp;
+        this.attack = attack;
+        this.defense = defense;
+        this.spattack = spattack;
+        this.spdefense = spdefense;
+        this.speed = speed;
+        this.url = url;
     }
 
     public int getId() {
@@ -118,5 +136,13 @@ public class Pokemon {
 
     public void setSpeed(String speed) {
         this.speed = speed;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

@@ -1,6 +1,8 @@
 package com.example.grupalpokemon.Modelos;
 
-public class EquipoModelo {
+import java.io.Serializable;
+
+public class EquipoModelo implements Serializable {
 
     private Pokemon pokemon1, pokemon2, pokemon3, pokemon4,pokemon5,pokemon6;
 
