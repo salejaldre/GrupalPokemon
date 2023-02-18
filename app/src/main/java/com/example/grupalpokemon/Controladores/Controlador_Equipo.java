@@ -3,6 +3,7 @@ package com.example.grupalpokemon.Controladores;
 import static com.example.grupalpokemon.Controladores.Comunes.mensaje;
 import static com.example.grupalpokemon.Controladores.Controlador_AlertDialog.comprobarseleccion;
 import static com.example.grupalpokemon.Vistas.Equipo.*;
+import static com.example.grupalpokemon.Vistas.Login.useractual;
 
 
 import android.content.Context;
@@ -15,12 +16,14 @@ import com.example.grupalpokemon.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class Controlador_Equipo {
 
     public static void guardarequipo(TextView pkmn1, TextView pkmn2, TextView pkmn3, TextView pkmn4, TextView pkmn5, TextView pkmn6, Equipos_ADO ado){
 
         ArrayList<String> guardarnombre= new ArrayList<>();
+        guardarnombre.add(useractual.getUser());
         guardarnombre.add(pkmn1.getText().toString());
         guardarnombre.add(pkmn2.getText().toString());
         guardarnombre.add(pkmn3.getText().toString());
@@ -42,22 +45,22 @@ public class Controlador_Equipo {
 
     }
 
-    public static void pokemonrandom(int posicion) {
+    public static void pokemonrandom(int posicion,ArrayList<Pokemon> listapokemons) {
 
-        ArrayList<Pokemon> pokerandoms =listadepokemons;
+        ArrayList<Pokemon> pokerandoms =listapokemons;
         Collections.shuffle(pokerandoms);
         equipolocal.set(posicion,pokerandoms.get(0));
 
     }
 
-    public static void listaequipos() {
+    public static void listaequipos(ArrayList<Pokemon> listapokemons, List<String> nombrecitos) {
 
         for(int q=0;q<nombrecitos.size();q++){
             String poknom = nombrecitos.get(q);
-            for(int p=0;p<listadepokemons.size();p++){
-                if(listadepokemons.get(q).getName().equals(poknom)){
+            for(int p=0;p<listapokemons.size();p++){
+                if(listapokemons.get(q).getName().equals(poknom)){
 
-                    equipolocal.add(q,listadepokemons.get(q));
+                    equipolocal.add(q,listapokemons.get(q));
                     equipolocal.remove(q+1);
                 }
             }

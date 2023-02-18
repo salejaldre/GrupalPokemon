@@ -1,56 +1,50 @@
 package com.example.grupalpokemon.Vistas;
 
-import static com.example.grupalpokemon.Controladores.Controlador_AlertDialog.comprobarseleccion;
-import static com.example.grupalpokemon.Json.Json.objpokemon;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static com.example.grupalpokemon.Controladores.Controlador_Equipo.*;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.grupalpokemon.BBDD.Equipos_ADO;
 import com.example.grupalpokemon.BBDD.Pokemon_ADO;
 import com.example.grupalpokemon.Controladores.Controlador_AlertDialog;
 import com.example.grupalpokemon.Menu.Menu;
-import com.example.grupalpokemon.Modelos.EquipoModelo;
 import com.example.grupalpokemon.Modelos.Pokemon;
 import com.example.grupalpokemon.R;
 import com.example.grupalpokemon.Sonidos.Sonidos;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class Equipo extends Menu {
 
-    static TextView pkmn1;
-    static TextView pkmn2;
-    static TextView pkmn3;
-    static TextView pkmn4;
-    static TextView pkmn5;
-    static TextView pkmn6;
-    RadioButton rb1;
-    RadioButton rb2;
-    RadioButton rb3;
-    RadioButton rb4;
-    RadioButton rb5;
-    RadioButton rb6;
+    private TextView pkmn1;
+    private TextView pkmn2;
+    private TextView pkmn3;
+    private TextView pkmn4;
+    private TextView pkmn5;
+    private TextView pkmn6;
+    private RadioButton rb1;
+    private RadioButton rb2;
+    private RadioButton rb3;
+    private RadioButton rb4;
+    private RadioButton rb5;
+    private RadioButton rb6;
     public static String seleccionado;
     public static int posicion;
     public static ArrayList<Pokemon> equipolocal;
-    public static List<String> nombrecitos;
+    private List<String> nombrecitos;
+    private ArrayList<Pokemon> listapokemons;
     ImageView btn;
     ImageView btnborrar;
     ImageView btnguardar;
     ImageView btnrandom;
-    Equipos_ADO ado ;
+    Equipos_ADO ado;
     Pokemon_ADO adop;
-    public static  ArrayList<Pokemon> listadepokemons;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,106 +53,39 @@ public class Equipo extends Menu {
 
         iniciarlabels();
         borrarequipos();
-        listaequipos();
-        cargarequipo();
+        listaequipos(listapokemons,nombrecitos);
+        cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6);
 
     btnrandom.setOnClickListener(v->{
-        if(comprobar()){ pokemonrandom();}
+        if(comprobar(rb1,rb2,rb3,rb4,rb5,rb6,this,pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6)){
+        pokemonrandom(posicion,listapokemons);
+        cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6);
+        }
 
     });
 
     btnguardar.setOnClickListener(v->{
         Sonidos.crearsonido(this,"guardar");
-        ArrayList<String> guardarnombre= new ArrayList<>();
-           guardarnombre.add(pkmn1.getText().toString());
-           guardarnombre.add(pkmn2.getText().toString());
-           guardarnombre.add(pkmn3.getText().toString());
-           guardarnombre.add(pkmn4.getText().toString());
-           guardarnombre.add(pkmn5.getText().toString());
-           guardarnombre.add(pkmn6.getText().toString());
-    ado.insertar(guardarnombre);
-
+        guardarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6,ado);
 
         });
 
        btnborrar.setOnClickListener(v->{
            borrarequipos();
-           cargarequipo();
+           cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6);
 
        });
 
     btn.setOnClickListener(v->{
 
-   if(comprobar()){
+   if(comprobar(rb1,rb2,rb3,rb4,rb5,rb6,this,pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6)){
        Controlador_AlertDialog conta = new Controlador_AlertDialog();
-       conta.mostraralerta(this);
+       conta.mostraralerta(this,listapokemons);
+       cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6);
 
    }
     });
-
    }
-
-    private void pokemonrandom() {
-
-        ArrayList<Pokemon> pokerandoms =listadepokemons;
-        Collections.shuffle(pokerandoms);
-        equipolocal.set(posicion,pokerandoms.get(0));
-        cargarequipo();
-    }
-
-    private void listaequipos() {
-
-    for(int q=0;q<nombrecitos.size();q++){
-        String poknom = nombrecitos.get(q);
-        for(int p=0;p<listadepokemons.size();p++){
-            if(listadepokemons.get(q).getName().equals(poknom)){
-
-                equipolocal.add(q,listadepokemons.get(q));
-                equipolocal.remove(q+1);
-                }
-            }
-        }
-    }
-
-    private void borrarequipos() {
-
-        equipolocal.add(0,new Pokemon(1000,"Pokemon1","tipo","0","0","0","0","0","0"));
-        equipolocal.add(1,new Pokemon(1001,"Pokemon2","tipo","0","0","0","0","0","0"));
-        equipolocal.add(2,new Pokemon(1002,"Pokemon3","tipo","0","0","0","0","0","0"));
-        equipolocal.add(3,new Pokemon(1003,"Pokemon4","tipo","0","0","0","0","0","0"));
-        equipolocal.add(4,new Pokemon(1004,"Pokemon5","tipo","0","0","0","0","0","0"));
-        equipolocal.add(5,new Pokemon(1005,"Pokemon6","tipo","0","0","0","0","0","0"));
-
-    }
-
-    public static void cargarequipo(){
-
-        pkmn1.setText(equipolocal.get(0).getName());
-        pkmn2.setText(equipolocal.get(1).getName());
-        pkmn3.setText(equipolocal.get(2).getName());
-        pkmn4.setText(equipolocal.get(3).getName());
-        pkmn5.setText(equipolocal.get(4).getName());
-        pkmn6.setText(equipolocal.get(5).getName());
-   }
-
-    public static void mensaje(String ms, Context context){
-       Toast.makeText(context, ms, Toast.LENGTH_SHORT).show();
-   }
-
-    private boolean comprobar() {
-
-              if(comprobarseleccion(rb1)){seleccionado = pkmn1.getText().toString();posicion = 0;}
-        else  if(comprobarseleccion(rb2)){seleccionado = pkmn2.getText().toString();posicion = 1;}
-        else  if(comprobarseleccion(rb3)){seleccionado = pkmn3.getText().toString();posicion = 2;}
-        else  if(comprobarseleccion(rb4)){seleccionado = pkmn4.getText().toString();posicion = 3;}
-        else  if(comprobarseleccion(rb5)){seleccionado = pkmn5.getText().toString();posicion = 4;}
-        else  if(comprobarseleccion(rb6)){seleccionado = pkmn6.getText().toString();posicion = 5;}
-        else{
-            mensaje(getString(R.string.noseleccion),this);
-            return false;
-              }
-        return true;
-    }
 
     private void iniciarlabels(){
 
@@ -180,13 +107,12 @@ public class Equipo extends Menu {
         btnguardar = findViewById(R.id.botonguardar);
         btnrandom = findViewById(R.id.botonrandom);
 
+        adop = new Pokemon_ADO(this);
         ado = new Equipos_ADO(this);
         equipolocal = new ArrayList<>();
-        nombrecitos = new ArrayList<>();
         posicion=0;
         seleccionado="";
-        adop = new Pokemon_ADO(this);
-        listadepokemons = (ArrayList<Pokemon>) adop.getAll();
+        listapokemons = (ArrayList<Pokemon>) adop.getAll();
         nombrecitos = ado.getAll();
    }
 
