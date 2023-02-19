@@ -1,28 +1,21 @@
 <resources>
     <string name="app_name">GrupalPokemon</string>
+
     <string name="noseleccion">Selecciona un campo de tu equipo</string>
     <string name="añadido">Pokemon agregado al Equipo</string>
     <string name="noencontrado">Pokemon no encontrado</string>
+    <string name="equipomal">Tiene que rellenar todo el equipo</string>
+    <string name="equipoguardado">Equipo Guardado</string>
+
     <string name="textouno">Hola, soy el Profesor Pokemon,he encargado al mejor equipo de desarrolladores de Android
                                 una aplicacion para entrenadores Pokemon</string>
     <string name="textodos">Esta aplicacion permitira a los entrenadores mirar los datos de los pokemon y hacerse un equipo a su gusto</string>
     <string name="textotres">Muchas gracias a los desarrolladores : Sergio Alejaldre,Diego Urmente,Guillermo Fabian, Josemi y Daniel Gimenez</string>
-    <string name="consultaallequipos">SELECT * FROM equipo</string>
-    <string name="consultaallpokemons">SELECT * FROM pokemon</string>
-    <string name="droptablepokemon">DROP TABLE IF EXISTS pokemon</string>
-    <string name="droptableequipo">SELECT * FROM pokemons</string>
-    <string name="createtableequipo">CREATE TABLE equipo (id INTEGER PRIMARY KEY AUTOINCREMENT, pokemon1 TEXT, " +
-                "pokemon2 TEXT, pokemon3 TEXT, pokemon4 TEXT, pokemon5 TEXT, " +
-                "pokemon6 TEXT)</string>
-    <string name="createtablepokemon">CREATE TABLE pokemon (id INTEGER PRIMARY KEY, name TEXT, type1 TEXT," +
-                "type2 TEXT,hp TEXT,attack TEXT, defense TEXT, spattack TEXT, spdefense TEXT, speed TEXT, url TEXT )</string>
 
     <string name="campovaciologin">Debes introducir los dos campos</string>
     <string name="loginsindatos">No hay ningun usuario registrado aun, registrese antes</string>
     <string name="errorlogin">LOGIN ERRONEO</string>
     <string name="registradologin">Usuario registrado correctamente</string>
     <string name="usuariyaregistrado">Ese usuario ya esta registrado</string>
-    <string name="equipomal">Tiene que rellenar todo el equipo</string>
-    <string name="equipoguardado">Tiene que rellenar todo el equipo</string>
-
+    
 </resources>
