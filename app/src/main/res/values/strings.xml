@@ -7,8 +7,8 @@
                                 una aplicacion para entrenadores Pokemon</string>
     <string name="textodos">Esta aplicacion permitira a los entrenadores mirar los datos de los pokemon y hacerse un equipo a su gusto</string>
     <string name="textotres">Muchas gracias a los desarrolladores : Sergio Alejaldre,Diego Urmente,Guillermo Fabian, Josemi y Daniel Gimenez</string>
-    <string name="consultaallequipos">SELECT * FROM equipos</string>
-    <string name="consultaallpokemons">SELECT * FROM pokemons</string>
+    <string name="consultaallequipos">SELECT * FROM equipo</string>
+    <string name="consultaallpokemons">SELECT * FROM pokemon</string>
     <string name="droptablepokemon">DROP TABLE IF EXISTS pokemon</string>
     <string name="droptableequipo">SELECT * FROM pokemons</string>
     <string name="createtableequipo">CREATE TABLE equipo (id INTEGER PRIMARY KEY AUTOINCREMENT, pokemon1 TEXT, " +

@@ -16,6 +16,7 @@ import com.example.grupalpokemon.Modelos.Pokemon;
 import com.example.grupalpokemon.R;
 import com.example.grupalpokemon.Sonidos.Sonidos;
 
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +45,6 @@ public class Equipo extends Menu {
     ImageView btnrandom;
     Equipos_ADO ado;
     Pokemon_ADO adop;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +106,8 @@ public class Equipo extends Menu {
         btnborrar = findViewById(R.id.botonborrar);
         btnguardar = findViewById(R.id.botonguardar);
         btnrandom = findViewById(R.id.botonrandom);
+        nombrecitos = new ArrayList<String>();
+        for(int q = 0 ; q<6;q++){nombrecitos.add(q,"");}
 
         adop = new Pokemon_ADO(this);
         ado = new Equipos_ADO(this);
@@ -113,7 +115,7 @@ public class Equipo extends Menu {
         posicion=0;
         seleccionado="";
         listapokemons = (ArrayList<Pokemon>) adop.getAll();
-        nombrecitos = ado.getAll();
+        nombrecitos = ado.getAll(nombrecitos);
    }
 
 }

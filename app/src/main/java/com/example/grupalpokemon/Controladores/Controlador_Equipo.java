@@ -58,9 +58,9 @@ public class Controlador_Equipo {
         for(int q=0;q<nombrecitos.size();q++){
             String poknom = nombrecitos.get(q);
             for(int p=0;p<listapokemons.size();p++){
-                if(listapokemons.get(q).getName().equals(poknom)){
+                if(listapokemons.get(p).getName().equals(poknom)){
 
-                    equipolocal.add(q,listapokemons.get(q));
+                    equipolocal.add(q,listapokemons.get(p));
                     equipolocal.remove(q+1);
                 }
             }
