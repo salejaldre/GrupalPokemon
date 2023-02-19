@@ -17,5 +17,28 @@
     <string name="errorlogin">LOGIN ERRONEO</string>
     <string name="registradologin">Usuario registrado correctamente</string>
     <string name="usuariyaregistrado">Ese usuario ya esta registrado</string>
-    
+    <string name="filtrarerror">Introduce un nombre o un tipo para filtrar</string>
+
+    <string-array name="spinnerfiltrar">
+        <item> Selectione Tipo </item>
+        <item> Fire </item>
+        <item> Grass </item>
+        <item> Water </item>
+        <item> Ground </item>
+        <item> Rock </item>
+        <item> Bug </item>
+        <item> Fighting </item>
+        <item> Flying </item>
+        <item> Dark </item>
+        <item> Psychic </item>
+        <item> Electric </item>
+        <item> Ice </item>
+        <item> Dragon </item>
+        <item> Fairy </item>
+        <item> Ghost </item>
+        <item> Normal </item>
+        <item> Steel </item>
+        <item> Poison </item>
+    </string-array>
+
 </resources>
