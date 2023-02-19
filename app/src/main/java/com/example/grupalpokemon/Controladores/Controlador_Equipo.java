@@ -4,6 +4,7 @@ import static com.example.grupalpokemon.Controladores.Comunes.mensaje;
 import static com.example.grupalpokemon.Controladores.Controlador_AlertDialog.comprobarseleccion;
 import static com.example.grupalpokemon.Vistas.Equipo.*;
 import static com.example.grupalpokemon.Vistas.Login.useractual;
+import static com.example.grupalpokemon.Vistas.MainActivity.pokemonlist;
 
 
 import android.content.Context;
@@ -20,8 +21,8 @@ import java.util.List;
 
 public class Controlador_Equipo {
 
-    public static void guardarequipo(TextView pkmn1, TextView pkmn2, TextView pkmn3, TextView pkmn4, TextView pkmn5, TextView pkmn6, Equipos_ADO ado){
-
+    public static void guardarequipo(TextView pkmn1, TextView pkmn2, TextView pkmn3, TextView pkmn4, TextView pkmn5, TextView pkmn6, Equipos_ADO ado,ArrayList<String> nombrecitos){
+        if(comprobarpokemon(pkmn1)&&comprobarpokemon(pkmn2)&&comprobarpokemon(pkmn3)&&comprobarpokemon(pkmn4)&&comprobarpokemon(pkmn5)&&comprobarpokemon(pkmn6)){
         ArrayList<String> guardarnombre= new ArrayList<>();
         guardarnombre.add(useractual.getUser());
         guardarnombre.add(pkmn1.getText().toString());
@@ -30,7 +31,21 @@ public class Controlador_Equipo {
         guardarnombre.add(pkmn4.getText().toString());
         guardarnombre.add(pkmn5.getText().toString());
         guardarnombre.add(pkmn6.getText().toString());
-        ado.insertar(guardarnombre);
+
+        if(nombrecitos.get(0).equals("")){ado.insertar(guardarnombre);}
+        else{ado.update(guardarnombre);}
+            mensaje(pkmn1.getContext().getString(R.string.equipoguardado),pkmn1.getContext());
+    }else{
+            mensaje(pkmn1.getContext().getString(R.string.equipomal),pkmn1.getContext());
+
+        }
+    }
+
+    private static boolean comprobarpokemon(TextView pkmon) {
+        for(int q = 0;q<pokemonlist.size();q++){
+            if(pkmon.getText().equals(pokemonlist.get(q).getName())){return true;}
+        }
+        return false;
 
     }
 
@@ -45,22 +60,21 @@ public class Controlador_Equipo {
 
     }
 
-    public static void pokemonrandom(int posicion,ArrayList<Pokemon> listapokemons) {
+    public static void pokemonrandom(int posicion) {
 
-        ArrayList<Pokemon> pokerandoms =listapokemons;
+        ArrayList<Pokemon> pokerandoms =pokemonlist;
         Collections.shuffle(pokerandoms);
         equipolocal.set(posicion,pokerandoms.get(0));
 
     }
 
-    public static void listaequipos(ArrayList<Pokemon> listapokemons, List<String> nombrecitos) {
+    public static void listaequipos( List<String> nombrecitos) {
 
         for(int q=0;q<nombrecitos.size();q++){
             String poknom = nombrecitos.get(q);
-            for(int p=0;p<listapokemons.size();p++){
-                if(listapokemons.get(p).getName().equals(poknom)){
-
-                    equipolocal.add(q,listapokemons.get(p));
+            for(int p=0;p<pokemonlist.size();p++){
+                if(pokemonlist.get(p).getName().equals(poknom)){
+                    equipolocal.add(q,pokemonlist.get(p));
                     equipolocal.remove(q+1);
                 }
             }

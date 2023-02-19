@@ -22,5 +22,7 @@
     <string name="errorlogin">LOGIN ERRONEO</string>
     <string name="registradologin">Usuario registrado correctamente</string>
     <string name="usuariyaregistrado">Ese usuario ya esta registrado</string>
+    <string name="equipomal">Tiene que rellenar todo el equipo</string>
+    <string name="equipoguardado">Tiene que rellenar todo el equipo</string>
 
 </resources>

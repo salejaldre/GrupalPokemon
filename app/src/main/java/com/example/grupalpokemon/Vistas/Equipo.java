@@ -2,6 +2,8 @@ package com.example.grupalpokemon.Vistas;
 
 
 import static com.example.grupalpokemon.Controladores.Controlador_Equipo.*;
+import static com.example.grupalpokemon.Vistas.Login.useractual;
+import static com.example.grupalpokemon.Vistas.MainActivity.pokemonlist;
 
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -38,7 +40,6 @@ public class Equipo extends Menu {
     public static int posicion;
     public static ArrayList<Pokemon> equipolocal;
     private List<String> nombrecitos;
-    private ArrayList<Pokemon> listapokemons;
     ImageView btn;
     ImageView btnborrar;
     ImageView btnguardar;
@@ -53,12 +54,12 @@ public class Equipo extends Menu {
 
         iniciarlabels();
         borrarequipos();
-        listaequipos(listapokemons,nombrecitos);
+        listaequipos(nombrecitos);
         cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6);
 
     btnrandom.setOnClickListener(v->{
         if(comprobar(rb1,rb2,rb3,rb4,rb5,rb6,this,pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6)){
-        pokemonrandom(posicion,listapokemons);
+        pokemonrandom(posicion);
         cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6);
         }
 
@@ -66,7 +67,7 @@ public class Equipo extends Menu {
 
     btnguardar.setOnClickListener(v->{
         Sonidos.crearsonido(this,"guardar");
-        guardarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6,ado);
+        guardarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6,ado, (ArrayList<String>) nombrecitos);
 
         });
 
@@ -80,7 +81,7 @@ public class Equipo extends Menu {
 
    if(comprobar(rb1,rb2,rb3,rb4,rb5,rb6,this,pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6)){
        Controlador_AlertDialog conta = new Controlador_AlertDialog();
-       conta.mostraralerta(this,listapokemons);
+       conta.mostraralerta(this);
        cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6);
 
    }
@@ -114,7 +115,6 @@ public class Equipo extends Menu {
         equipolocal = new ArrayList<>();
         posicion=0;
         seleccionado="";
-        listapokemons = (ArrayList<Pokemon>) adop.getAll();
         nombrecitos = ado.getAll(nombrecitos);
    }
 
