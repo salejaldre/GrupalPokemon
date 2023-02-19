@@ -26,7 +26,6 @@ public class Adaptador_Listado extends RecyclerView.Adapter<Adaptador_Listado.Vi
         this.lista = listita;
     }
 
-    private static CardView card;
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -49,7 +48,6 @@ public class Adaptador_Listado extends RecyclerView.Adapter<Adaptador_Listado.Vi
         holder.itemView.setOnClickListener(v->{
             Intent intent = new Intent(v.getContext(), Datos.class);
             intent.putExtra("posicion", position);
-            intent.putExtra("array", (Serializable) lista);
             v.getContext().startActivity(intent);
         });
     }
