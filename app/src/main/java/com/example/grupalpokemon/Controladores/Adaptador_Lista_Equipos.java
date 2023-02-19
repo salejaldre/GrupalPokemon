@@ -1,61 +1,54 @@
 package com.example.grupalpokemon.Controladores;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.grupalpokemon.Json.Json;
-import com.example.grupalpokemon.Modelos.Pokemon;
 import com.example.grupalpokemon.R;
 import com.example.grupalpokemon.Vistas.Datos;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Adaptador_Listado extends RecyclerView.Adapter<Adaptador_Listado.ViewHolder> {
-    List<Pokemon> lista;
+public class Adaptador_Lista_Equipos extends RecyclerView.Adapter<Adaptador_Lista_Equipos.ViewHolder>{
 
-    public Adaptador_Listado(List<Pokemon> listita) {
-        this.lista = listita;
+    List<String> todosequipos = new ArrayList<>();
+
+    public Adaptador_Lista_Equipos(List<String> todosequipos) {
+        this.todosequipos = todosequipos;
     }
 
-    private static CardView card;
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View vista = inflater.inflate(R.layout.lista_layout, parent, false);
 
-        return new ViewHolder(vista);
+        return new Adaptador_Lista_Equipos.ViewHolder(vista);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-        holder.nombre.setText(lista.get(position).getName());
-        if(lista.get(position).getType2().equals("null")){
-            holder.type.setText(lista.get(position).getType1());
-        } else {
-            holder.type.setText(lista.get(position).getType1() + " " + lista.get(position).getType2());
-        }
+        holder.nombre.setText(todosequipos.get(0));
+        holder.type.setText(todosequipos.get(1));
 
         holder.itemView.setOnClickListener(v->{
             Intent intent = new Intent(v.getContext(), Datos.class);
             intent.putExtra("posicion", position);
-            intent.putExtra("array", (Serializable) lista);
             v.getContext().startActivity(intent);
         });
     }
 
     @Override
-    public int getItemCount() {return lista.size();}
+    public int getItemCount() {
+        return todosequipos.size() ;
+    }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView nombre;
