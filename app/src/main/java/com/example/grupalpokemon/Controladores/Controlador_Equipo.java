@@ -51,12 +51,12 @@ public class Controlador_Equipo {
 
     public static void borrarequipos() {
 
-        equipolocal.add(0,new Pokemon(1000,"Pokemon1","tipo","0","0","0","0","0","0","url"));
-        equipolocal.add(1,new Pokemon(1001,"Pokemon2","tipo","0","0","0","0","0","0","url"));
-        equipolocal.add(2,new Pokemon(1002,"Pokemon3","tipo","0","0","0","0","0","0","url"));
-        equipolocal.add(3,new Pokemon(1003,"Pokemon4","tipo","0","0","0","0","0","0","url"));
-        equipolocal.add(4,new Pokemon(1004,"Pokemon5","tipo","0","0","0","0","0","0","url"));
-        equipolocal.add(5,new Pokemon(1005,"Pokemon6","tipo","0","0","0","0","0","0","url"));
+        equipolocal.add(0,new Pokemon("Pokemon1"));
+        equipolocal.add(1,new Pokemon("Pokemon2"));
+        equipolocal.add(2,new Pokemon("Pokemon3"));
+        equipolocal.add(3,new Pokemon("Pokemon4"));
+        equipolocal.add(4,new Pokemon("Pokemon5"));
+        equipolocal.add(5,new Pokemon("Pokemon6"));
 
     }
 
@@ -106,6 +106,7 @@ public class Controlador_Equipo {
         }
         return true;
     }
+
 
 
 }
