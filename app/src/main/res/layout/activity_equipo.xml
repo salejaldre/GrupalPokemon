@@ -6,113 +6,239 @@
     android:layout_height="match_parent"
     tools:context=".Vistas.Equipo">
 
+
+    <ImageView
+        android:id="@+id/botonguardar"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pokemon6"
+        app:layout_constraintVertical_bias="0.198"
+        app:srcCompat="@drawable/botonb" />
+
+    <ImageView
+        android:id="@+id/boton"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="44dp"
+        app:layout_constraintBottom_toBottomOf="@+id/botonrandom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toEndOf="@+id/botonrandom"
+        app:layout_constraintTop_toTopOf="@+id/botonrandom"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/botong" />
+
+    <ImageView
+        android:id="@+id/botonrandom"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="44dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonguardar"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/botony" />
+
+    <ImageView
+        android:id="@+id/botonborrar"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="44dp"
+        app:layout_constraintBottom_toBottomOf="@+id/botonguardar"
+        app:layout_constraintEnd_toEndOf="@+id/grupo"
+        app:layout_constraintHorizontal_bias="0.783"
+        app:layout_constraintStart_toEndOf="@+id/botonguardar"
+        app:layout_constraintTop_toTopOf="@+id/botonguardar"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/botonr" />
+
+    <RadioGroup
+        android:id="@+id/grupo"
+        android:layout_width="81dp"
+        android:layout_height="328dp"
+        android:layout_marginEnd="96dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pokemon1">
+
+
+        <RadioButton
+            android:id="@+id/rb1"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <RadioButton
+            android:id="@+id/rb2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="32dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="28dp" />
+
+        <RadioButton
+            android:id="@+id/rb3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="32dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="31dp" />
+
+        <RadioButton
+            android:id="@+id/rb4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="32dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="29dp" />
+
+        <RadioButton
+            android:id="@+id/rb5"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="32dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="26dp" />
+
+        <RadioButton
+            android:id="@+id/rb6"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="32dp" />
+    </RadioGroup>
+
     <TextView
         android:id="@+id/pokemon1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/pokemonsolid"
         android:text="TextView"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="97dp" />
+        app:layout_constraintEnd_toStartOf="@+id/grupo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/pokemon2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/pokemonsolid"
         android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@+id/pokemon1"
-        tools:layout_editor_absoluteX="97dp" />
+        app:layout_constraintEnd_toEndOf="@+id/pokemon1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pokemon1"
+        app:layout_constraintTop_toBottomOf="@+id/pokemon1" />
 
     <TextView
         android:id="@+id/pokemon3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/pokemonsolid"
         android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@+id/pokemon2"
-        tools:layout_editor_absoluteX="97dp" />
+        app:layout_constraintEnd_toEndOf="@+id/pokemon1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pokemon1"
+        app:layout_constraintTop_toBottomOf="@+id/pokemon2" />
 
     <TextView
         android:id="@+id/pokemon4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/pokemonsolid"
         android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@+id/pokemon3"
-        tools:layout_editor_absoluteX="97dp" />
+        app:layout_constraintEnd_toEndOf="@+id/pokemon1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pokemon1"
+        app:layout_constraintTop_toBottomOf="@+id/pokemon3" />
 
     <TextView
         android:id="@+id/pokemon5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/pokemonsolid"
         android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@+id/pokemon4"
-        tools:layout_editor_absoluteX="97dp" />
+        app:layout_constraintEnd_toEndOf="@+id/pokemon1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pokemon1"
+        app:layout_constraintTop_toBottomOf="@+id/pokemon4" />
 
     <TextView
         android:id="@+id/pokemon6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/pokemonsolid"
         android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@+id/pokemon5"
-        tools:layout_editor_absoluteX="97dp" />
+        app:layout_constraintEnd_toEndOf="@+id/pokemon1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pokemon1"
+        app:layout_constraintTop_toBottomOf="@+id/pokemon5" />
 
-    <RadioButton
-        android:id="@+id/rb1"
+    <TextView
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="227dp"
-        tools:layout_editor_absoluteY="90dp" />
+        android:fontFamily="@font/pokemonsolid"
+        android:text="Guardar"
+        android:textColor="#DAD9D9"
+        app:layout_constraintBottom_toBottomOf="@+id/botonguardar"
+        app:layout_constraintEnd_toEndOf="@+id/botonguardar"
+        app:layout_constraintStart_toStartOf="@+id/botonguardar"
+        app:layout_constraintTop_toTopOf="@+id/botonguardar" />
 
-    <RadioButton
-        android:id="@+id/rb2"
+    <TextView
+        android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RadioButton"
-        tools:layout_editor_absoluteX="227dp"
-        tools:layout_editor_absoluteY="36dp" />
+        android:fontFamily="@font/pokemonsolid"
+        android:text="Borrar"
+        android:textColor="#DAD9D9"
+        app:layout_constraintBottom_toBottomOf="@+id/botonborrar"
+        app:layout_constraintEnd_toEndOf="@+id/botonborrar"
+        app:layout_constraintStart_toStartOf="@+id/botonborrar"
+        app:layout_constraintTop_toTopOf="@+id/botonborrar" />
 
-    <RadioButton
-        android:id="@+id/rb3"
+    <TextView
+        android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RadioButton"
-        tools:layout_editor_absoluteX="227dp"
-        tools:layout_editor_absoluteY="317dp" />
+        android:fontFamily="@font/pokemonsolid"
+        android:text="Añadir"
+        android:textColor="#DAD9D9"
+        app:layout_constraintBottom_toBottomOf="@+id/boton"
+        app:layout_constraintEnd_toEndOf="@+id/boton"
+        app:layout_constraintStart_toStartOf="@+id/boton"
+        app:layout_constraintTop_toTopOf="@+id/boton" />
 
-    <RadioButton
-        android:id="@+id/rb4"
+    <TextView
+        android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RadioButton"
-        tools:layout_editor_absoluteX="227dp"
-        tools:layout_editor_absoluteY="259dp" />
-
-    <RadioButton
-        android:id="@+id/rb5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RadioButton"
-        tools:layout_editor_absoluteX="227dp"
-        tools:layout_editor_absoluteY="199dp" />
-
-    <RadioButton
-        android:id="@+id/rb6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RadioButton"
-        tools:layout_editor_absoluteX="227dp"
-        tools:layout_editor_absoluteY="144dp" />
-
-    <ImageView
-        android:id="@+id/boton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="185dp"
-        tools:layout_editor_absoluteY="434dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:fontFamily="@font/pokemonsolid"
+        android:text="Random"
+        android:textColor="#DAD9D9"
+        app:layout_constraintBottom_toBottomOf="@+id/botonrandom"
+        app:layout_constraintEnd_toEndOf="@+id/botonrandom"
+        app:layout_constraintStart_toStartOf="@+id/botonrandom"
+        app:layout_constraintTop_toTopOf="@+id/botonrandom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
