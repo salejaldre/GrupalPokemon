@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +14,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GrupalPokemon"
         tools:targetApi="31">
+        <activity
+            android:name=".Vistas.Login"
+            android:theme="@style/Fullscreen"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Vistas.Lista_Equipos"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Vistas.Creditos_Oak"
+            android:theme="@style/Fullscreen"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".Menu.Menu"
             android:exported="false">
@@ -37,6 +60,7 @@
         </activity>
         <activity
             android:name=".Vistas.Pantalla_principal"
+            android:theme="@style/Fullscreen"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

@@ -2,16 +2,19 @@ package com.example.grupalpokemon.Controladores;
 
 import static com.example.grupalpokemon.Controladores.Comunes.mensaje;
 import static com.example.grupalpokemon.Controladores.Controlador_AlertDialog.comprobarseleccion;
+import static com.example.grupalpokemon.Imagenes.Imagenes.mostrarImagen;
 import static com.example.grupalpokemon.Vistas.Equipo.*;
 import static com.example.grupalpokemon.Vistas.Login.useractual;
 import static com.example.grupalpokemon.Vistas.MainActivity.pokemonlist;
 
 
 import android.content.Context;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.example.grupalpokemon.BBDD.Equipos_ADO;
+import com.example.grupalpokemon.Imagenes.Imagenes;
 import com.example.grupalpokemon.Modelos.Pokemon;
 import com.example.grupalpokemon.R;
 
@@ -81,7 +84,8 @@ public class Controlador_Equipo {
         }
     }
 
-    public static void cargarequipo(TextView pkmn1,TextView pkmn2,TextView pkmn3,TextView pkmn4,TextView pkmn5,TextView pkmn6){
+    public static void cargarequipo(TextView pkmn1, TextView pkmn2, TextView pkmn3, TextView pkmn4, TextView pkmn5, TextView pkmn6,
+                                    ImageView img1,ImageView img2,ImageView img3,ImageView img4,ImageView img5,ImageView img6){
 
         pkmn1.setText(equipolocal.get(0).getName());
         pkmn2.setText(equipolocal.get(1).getName());
@@ -89,6 +93,12 @@ public class Controlador_Equipo {
         pkmn4.setText(equipolocal.get(3).getName());
         pkmn5.setText(equipolocal.get(4).getName());
         pkmn6.setText(equipolocal.get(5).getName());
+        mostrarImagen(equipolocal.get(0),img1);
+        mostrarImagen(equipolocal.get(1),img2);
+        mostrarImagen(equipolocal.get(2),img3);
+        mostrarImagen(equipolocal.get(3),img4);
+        mostrarImagen(equipolocal.get(4),img5);
+        mostrarImagen(equipolocal.get(5),img6);
     }
 
     public static boolean comprobar(RadioButton rb1, RadioButton rb2, RadioButton rb3, RadioButton rb4, RadioButton rb5, RadioButton rb6, Context context,

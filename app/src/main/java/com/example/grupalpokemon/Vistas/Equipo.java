@@ -24,12 +24,18 @@ import java.util.List;
 
 public class Equipo extends Menu {
 
-    private TextView pkmn1;
-    private TextView pkmn2;
-    private TextView pkmn3;
-    private TextView pkmn4;
-    private TextView pkmn5;
-    private TextView pkmn6;
+    public static TextView pkmn1;
+    public static TextView pkmn2;
+    public static TextView pkmn3;
+    public static TextView pkmn4;
+    public static TextView pkmn5;
+    public static TextView pkmn6;
+    public static ImageView img1;
+    public static ImageView img2;
+    public static ImageView img3;
+    public static ImageView img4;
+    public static ImageView img5;
+    public static ImageView img6;
     private RadioButton rb1;
     private RadioButton rb2;
     private RadioButton rb3;
@@ -55,12 +61,12 @@ public class Equipo extends Menu {
         iniciarlabels();
         borrarequipos();
         listaequipos(nombrecitos);
-        cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6);
+        cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6,img1,img2,img3,img4,img5,img6);
 
     btnrandom.setOnClickListener(v->{
         if(comprobar(rb1,rb2,rb3,rb4,rb5,rb6,this,pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6)){
         pokemonrandom(posicion);
-        cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6);
+            cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6,img1,img2,img3,img4,img5,img6);
         }
 
     });
@@ -73,7 +79,7 @@ public class Equipo extends Menu {
 
        btnborrar.setOnClickListener(v->{
            borrarequipos();
-           cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6);
+           cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6,img1,img2,img3,img4,img5,img6);
 
        });
 
@@ -82,11 +88,15 @@ public class Equipo extends Menu {
    if(comprobar(rb1,rb2,rb3,rb4,rb5,rb6,this,pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6)){
        Controlador_AlertDialog conta = new Controlador_AlertDialog();
        conta.mostraralerta(this);
-       cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6);
+   }
+
+    });
 
    }
-    });
-   }
+
+
+
+
 
     private void iniciarlabels(){
 
@@ -102,6 +112,12 @@ public class Equipo extends Menu {
         rb4 = findViewById(R.id.rb4);
         rb5 = findViewById(R.id.rb5);
         rb6 = findViewById(R.id.rb6);
+        img1 = findViewById(R.id.imgpk1);
+        img2 = findViewById(R.id.imgpk2);
+        img3 = findViewById(R.id.imgpk3);
+        img4 = findViewById(R.id.imgpk4);
+        img5 = findViewById(R.id.imgpk5);
+        img6 = findViewById(R.id.imgpk6);
 
         btn = findViewById(R.id.boton);
         btnborrar = findViewById(R.id.botonborrar);
