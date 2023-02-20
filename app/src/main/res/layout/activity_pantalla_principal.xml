@@ -6,4 +6,104 @@
     android:layout_height="match_parent"
     tools:context=".Vistas.Pantalla_principal">
 
+    <ImageView
+        android:id="@+id/btlistaequipo"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btlistapokemon"
+        app:layout_constraintEnd_toEndOf="@+id/btequipo"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/btequipo"
+        app:layout_constraintTop_toBottomOf="@+id/btequipo"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/botonb" />
+
+    <ImageView
+        android:id="@+id/btnoak"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.451"
+        app:srcCompat="@drawable/botonr" />
+
+    <ImageView
+        android:id="@+id/btequipo"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="28dp"
+        app:layout_constraintStart_toEndOf="@+id/btnoak"
+        app:layout_constraintTop_toTopOf="@+id/btnoak"
+        app:srcCompat="@drawable/botony" />
+
+    <ImageView
+        android:id="@+id/btlistapokemon"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnoak"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnoak"
+        app:layout_constraintTop_toBottomOf="@+id/btnoak"
+        app:srcCompat="@drawable/botong" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="Profesor_Oak"
+        android:textColor="#EFE4E4"
+        app:layout_constraintBottom_toBottomOf="@+id/btnoak"
+        app:layout_constraintEnd_toEndOf="@+id/btnoak"
+        app:layout_constraintStart_toStartOf="@+id/btnoak"
+        app:layout_constraintTop_toTopOf="@+id/btnoak"
+        app:layout_constraintVertical_bias="0.444" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="Lista_Equipos"
+        android:textColor="#EFE4E4"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btlistaequipo"
+        app:layout_constraintEnd_toEndOf="@+id/btlistaequipo"
+        app:layout_constraintStart_toStartOf="@+id/btlistaequipo"
+        app:layout_constraintTop_toTopOf="@+id/btlistaequipo" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="Equipo"
+        android:textColor="#EFE4E4"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btequipo"
+        app:layout_constraintEnd_toEndOf="@+id/btequipo"
+        app:layout_constraintStart_toStartOf="@+id/btequipo"
+        app:layout_constraintTop_toTopOf="@+id/btequipo" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="Lista_Pokemon"
+        android:textColor="#EFE4E4"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btlistapokemon"
+        app:layout_constraintEnd_toEndOf="@+id/btlistapokemon"
+        app:layout_constraintStart_toStartOf="@+id/btlistapokemon"
+        app:layout_constraintTop_toTopOf="@+id/btlistapokemon" />
 </androidx.constraintlayout.widget.ConstraintLayout>
