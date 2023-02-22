@@ -1,19 +1,16 @@
 package com.example.grupalpokemon.Vistas;
 
 
-import static com.example.grupalpokemon.Vistas.Login.useractual;
 import static com.example.grupalpokemon.Vistas.MainActivity.pokemonlist;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
 import com.example.grupalpokemon.BBDD.Equipos_ADO;
-import com.example.grupalpokemon.BBDD.Pokemon_ADO;
 import com.example.grupalpokemon.Controladores.Adaptador_Lista_Equipos;
-import com.example.grupalpokemon.Controladores.Adaptador_Listado;
+import com.example.grupalpokemon.Menu.Menu;
 import com.example.grupalpokemon.Modelos.EquipoModelo;
 import com.example.grupalpokemon.Modelos.Pokemon;
 import com.example.grupalpokemon.Modelos.Usuario;
@@ -22,7 +19,7 @@ import com.example.grupalpokemon.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lista_Equipos extends AppCompatActivity {
+public class Lista_Equipos extends Menu {
 
 
     @Override
@@ -42,7 +39,6 @@ public class Lista_Equipos extends AppCompatActivity {
         ArrayList<EquipoModelo> todoslosequipos= crearobjeto((ArrayList) equiposlist);
         recyclerView.setAdapter(new Adaptador_Lista_Equipos(todoslosequipos));
 
-
     }
 
     private ArrayList<EquipoModelo> crearobjeto(ArrayList equipolista) {
@@ -50,7 +46,7 @@ public class Lista_Equipos extends AppCompatActivity {
         ArrayList<EquipoModelo> todoslosequipos = new ArrayList<>();
 
          do{
-                Usuario user = new Usuario((String) equipolista.get(0),"");
+                Usuario user = new Usuario((String) equipolista.get(0),"","");
                 Pokemon poke1 =comprobarpokemon((String) equipolista.get(1));
                 Pokemon poke2 =comprobarpokemon((String) equipolista.get(2));
                 Pokemon poke3 =comprobarpokemon((String) equipolista.get(3));

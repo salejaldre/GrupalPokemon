@@ -18,9 +18,11 @@
     <string name="registradologin">Usuario registrado correctamente</string>
     <string name="usuariyaregistrado">Ese usuario ya esta registrado</string>
     <string name="filtrarerror">Introduce un nombre o un tipo para filtrar</string>
+    <string name="naturalezaerror">Introduce una Naturaleza</string>
+    <string name="nohayequipo">No hay Equipos</string>
 
     <string-array name="spinnerfiltrar">
-        <item> Selectione Tipo </item>
+        <item> Seleccione Tipo </item>
         <item> Fire </item>
         <item> Grass </item>
         <item> Water </item>
@@ -39,6 +41,42 @@
         <item> Normal </item>
         <item> Steel </item>
         <item> Poison </item>
+    </string-array>
+
+    <string-array name="spinnernaturaleza">
+        <item> Seleccione Naturaleza </item>
+        <item> Hasty </item>
+        <item> Mild </item>
+        <item> Impish </item>
+        <item> Jolly </item>
+        <item> Rash </item>
+        <item> Gentle </item>
+        <item> Brave </item>
+        <item> Careful </item>
+        <item> Docile </item>
+        <item> Adamant </item>
+        <item> Lax </item>
+        <item> Hardy </item>
+        <item> Sassy </item>
+        <item> Lonely </item>
+        <item> Naive </item>
+        <item> Quiet </item>
+        <item> Timid </item>
+        <item> Modest </item>
+        <item> Bold </item>
+        <item> Naughty </item>
+        <item> Relaxed </item>
+        <item> Quirky </item>
+        <item> Calm </item>
+        <item> Serious </item>
+        <item> Bashful </item>
+    </string-array>
+
+    <string-array name="spinnerteams">
+        <item> Seleccione una Faccion </item>
+        <item> Valor </item>
+        <item> Sabiduria </item>
+        <item> Instinto </item>
     </string-array>
 
 </resources>

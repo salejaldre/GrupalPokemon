@@ -1,22 +1,23 @@
 package com.example.grupalpokemon.Controladores;
 
+
 import static com.example.grupalpokemon.Controladores.Comunes.mensaje;
-import static com.example.grupalpokemon.Controladores.Controlador_AlertDialog.comprobarseleccion;
 import static com.example.grupalpokemon.Imagenes.Imagenes.mostrarImagen;
 import static com.example.grupalpokemon.Vistas.Equipo.*;
 import static com.example.grupalpokemon.Vistas.Login.useractual;
 import static com.example.grupalpokemon.Vistas.MainActivity.pokemonlist;
 
-
 import android.content.Context;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.grupalpokemon.BBDD.Equipos_ADO;
-import com.example.grupalpokemon.Imagenes.Imagenes;
 import com.example.grupalpokemon.Modelos.Pokemon;
 import com.example.grupalpokemon.R;
+import com.example.grupalpokemon.Sonidos.Sonidos;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -63,11 +64,20 @@ public class Controlador_Equipo {
 
     }
 
+    public static int comprobarfondo(){
+
+        if(useractual.getFaccion().equals("Valor")){ return R.drawable.rojo;}
+        else if(useractual.getFaccion().equals("Sabiduria")){ return R.drawable.aguagrande;}
+        else {return R.drawable.yellow;}
+    }
+
     public static void pokemonrandom(int posicion) {
 
         ArrayList<Pokemon> pokerandoms =pokemonlist;
         Collections.shuffle(pokerandoms);
-        equipolocal.set(posicion,pokerandoms.get(0));
+       Pokemon ran = pokerandoms.get(0);
+       ran.setNaturaleza("Naughty");
+        equipolocal.set(posicion,ran);
 
     }
 
@@ -117,6 +127,33 @@ public class Controlador_Equipo {
         return true;
     }
 
+
+    public static void comprobarAlerta(EditText campo, Spinner spin) {
+        String nombre = campo.getText().toString();
+        if(!nombre.trim().equals("")){
+
+            for(int q=0;q<pokemonlist.size();q++){
+                if(nombre.equals(pokemonlist.get(q).getName())){
+
+                    if(spin.getSelectedItemPosition()!=0){
+
+                        Sonidos.crearsonido(campo.getContext(),"nuevo");
+                        pokemonlist.get(q).setNaturaleza(spin.getSelectedItem().toString());
+                        equipolocal.add(posicion,pokemonlist.get(q));
+                        equipolocal.remove(posicion+1);
+                        cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6,img1,img2,img3,img4,img5,img6);
+                        break;
+
+                    }else{mensaje(campo.getContext().getString(R.string.naturalezaerror), campo.getContext());}
+
+                }else if(q == pokemonlist.size())mensaje(campo.getContext().getString(R.string.noencontrado),campo.getContext());
+            }
+        }
+    }
+
+    public static boolean comprobarseleccion(RadioButton boton){
+        return boton.isChecked();
+    }
 
 
 }

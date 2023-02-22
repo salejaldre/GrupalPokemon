@@ -1,14 +1,26 @@
 package com.example.grupalpokemon.Vistas;
 
 
+import static com.example.grupalpokemon.Controladores.Comunes.mensaje;
 import static com.example.grupalpokemon.Controladores.Controlador_Equipo.*;
 import static com.example.grupalpokemon.Vistas.Login.useractual;
 import static com.example.grupalpokemon.Vistas.MainActivity.pokemonlist;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 
 import com.example.grupalpokemon.BBDD.Equipos_ADO;
 import com.example.grupalpokemon.BBDD.Pokemon_ADO;
@@ -52,6 +64,7 @@ public class Equipo extends Menu {
     ImageView btnrandom;
     Equipos_ADO ado;
     Pokemon_ADO adop;
+    ConstraintLayout fondito;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +72,7 @@ public class Equipo extends Menu {
         setContentView(R.layout.activity_equipo);
 
         iniciarlabels();
+        fondito.setBackgroundResource(comprobarfondo());
         borrarequipos();
         listaequipos(nombrecitos);
         cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6,img1,img2,img3,img4,img5,img6);
@@ -66,7 +80,7 @@ public class Equipo extends Menu {
     btnrandom.setOnClickListener(v->{
         if(comprobar(rb1,rb2,rb3,rb4,rb5,rb6,this,pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6)){
         pokemonrandom(posicion);
-            cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6,img1,img2,img3,img4,img5,img6);
+        cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6,img1,img2,img3,img4,img5,img6);
         }
 
     });
@@ -77,7 +91,7 @@ public class Equipo extends Menu {
 
         });
 
-       btnborrar.setOnClickListener(v->{
+    btnborrar.setOnClickListener(v->{
            borrarequipos();
            cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6,img1,img2,img3,img4,img5,img6);
 
@@ -86,17 +100,66 @@ public class Equipo extends Menu {
     btn.setOnClickListener(v->{
 
    if(comprobar(rb1,rb2,rb3,rb4,rb5,rb6,this,pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6)){
-       Controlador_AlertDialog conta = new Controlador_AlertDialog();
-       conta.mostraralerta(this);
+       mostraralerta(this);
    }
 
     });
 
+    clicables(pkmn1, equipolocal.get(0));
+    clicables(pkmn2, equipolocal.get(1));
+    clicables(pkmn3, equipolocal.get(2));
+    clicables(pkmn4, equipolocal.get(3));
+    clicables(pkmn5, equipolocal.get(4));
+    clicables(pkmn6, equipolocal.get(5));
+
    }
 
+    private void clicables(TextView txt, Pokemon pokemn) {
+        txt.setOnClickListener(v -> {
+            intentico(pokemn);
+        });
+
+    }
+
+    private void mostraralerta(Context context){
+        EditText nombre;
+        Spinner spinnatura;
+
+        AlertDialog.Builder alerta = new AlertDialog.Builder(context);
+        LayoutInflater layoutInflater = getLayoutInflater();
+        View vista = layoutInflater.inflate(R.layout.editarequipo_layout,null);
+        alerta.setView(vista);
+        alerta.setTitle("Elije Un Nuevo Pokemon");
+
+        nombre = vista.findViewById(R.id.camponombre);
+        spinnatura = vista.findViewById(R.id.spinnaturalezas);
+
+        nombre.setText(seleccionado);
 
 
+        alerta.setPositiveButton("Añadir", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                comprobarAlerta(nombre,spinnatura);
+                mensaje(context.getString(R.string.añadido),context);
+            }
+        });
 
+        alerta.setNegativeButton("Cancelar",new DialogInterface.OnClickListener(){
+
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {}
+
+        });
+        alerta.show();
+    }
+
+    private void intentico(Pokemon pokemon){
+        Intent intent = new Intent(this,Datos.class);
+        intent.putExtra("pokemon",pokemon);
+        intent.putExtra("ruta",9);
+        startActivity(intent);
+    }
 
     private void iniciarlabels(){
 
@@ -119,6 +182,8 @@ public class Equipo extends Menu {
         img5 = findViewById(R.id.imgpk5);
         img6 = findViewById(R.id.imgpk6);
 
+        fondito = findViewById(R.id.fondito);
+
         btn = findViewById(R.id.boton);
         btnborrar = findViewById(R.id.botonborrar);
         btnguardar = findViewById(R.id.botonguardar);
@@ -132,6 +197,7 @@ public class Equipo extends Menu {
         posicion=0;
         seleccionado="";
         nombrecitos = ado.getAll(nombrecitos);
+
    }
 
 }
