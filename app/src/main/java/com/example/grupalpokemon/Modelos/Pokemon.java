@@ -14,37 +14,38 @@ public class Pokemon implements Serializable {
     String spdefense;
     String speed;
     String url;
+    String urlshiny;
+    String urlpokedex;
+    String naturaleza;
+    String habilidad;
+    String movimientos;
 
     public Pokemon() {
     }
 
-    public Pokemon(int id, String name, String type1, String hp, String attack, String defense, String spattack, String spdefense, String speed,  String url) {
-        this.id = id;
+    public Pokemon(String name) {
         this.name = name;
-        this.type1 = type1;
-        this.hp = hp;
-        this.attack = attack;
-        this.defense = defense;
-        this.spattack = spattack;
-        this.spdefense = spdefense;
-        this.speed = speed;
-        this.url = url;
     }
 
-    /*public Pokemon(int id, String name, String type1, String type2, String hp, String attack, String defense, String spattack, String spdefense, String speed) {
+    public Pokemon(int id, String name, String type1, String hp, String attack, String defense, String spattack, String spdefense, String speed,  String url,String urlpokedex,String urlshiny,String naturaleza,String habilidad,String movimientos) {
         this.id = id;
         this.name = name;
         this.type1 = type1;
-        this.type2 = type2;
         this.hp = hp;
         this.attack = attack;
         this.defense = defense;
         this.spattack = spattack;
         this.spdefense = spdefense;
         this.speed = speed;
-    }*/
+        this.url = url;
+        this.urlpokedex = urlpokedex;
+        this.urlshiny = urlshiny;
+        this.habilidad = habilidad;
+        this.movimientos = movimientos;
+        this.naturaleza = naturaleza;
+    }
 
-    public Pokemon(int id, String name, String type1, String type2, String hp, String attack, String defense, String spattack, String spdefense, String speed,  String url) {
+    public Pokemon(int id, String name, String type1, String type2, String hp, String attack, String defense, String spattack, String spdefense, String speed,  String url,String urlpokedex,String urlshiny,String naturaleza,String habilidad,String movimientos) {
         this.id = id;
         this.name = name;
         this.type1 = type1;
@@ -56,6 +57,51 @@ public class Pokemon implements Serializable {
         this.spdefense = spdefense;
         this.speed = speed;
         this.url = url;
+        this.urlpokedex = urlpokedex;
+        this.urlshiny = urlshiny;
+        this.habilidad = habilidad;
+        this.movimientos = movimientos;
+        this.naturaleza = naturaleza;
+    }
+
+    public String getHabilidad() {
+        return habilidad;
+    }
+
+    public void setHabilidad(String habilidad) {
+        this.habilidad = habilidad;
+    }
+
+    public String getMovimientos() {
+        return movimientos;
+    }
+
+    public void setMovimientos(String movimientos) {
+        this.movimientos = movimientos;
+    }
+
+    public String getUrlshiny() {
+        return urlshiny;
+    }
+
+    public void setUrlshiny(String urlshiny) {
+        this.urlshiny = urlshiny;
+    }
+
+    public String getNaturaleza() {
+        return naturaleza;
+    }
+
+    public void setNaturaleza(String naturaleza) {
+        this.naturaleza = naturaleza;
+    }
+
+    public String getUrlpokedex() {
+        return urlpokedex;
+    }
+
+    public void setUrlpokedex(String url2) {
+        this.urlpokedex = url2;
     }
 
     public int getId() {
