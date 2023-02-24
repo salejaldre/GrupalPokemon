@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtSextoPokemon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imgSextoPokemon"
+        app:layout_constraintEnd_toEndOf="@+id/txtPrimerPokemon"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtPrimerPokemon"
+        app:layout_constraintTop_toTopOf="@+id/imgSextoPokemon"
+        app:layout_constraintVertical_bias="0.352" />
+
+    <ImageView
+        android:id="@+id/imgPrimerPokemon"
+        android:layout_width="57dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.31"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtJefeEquipo"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/txtJefeEquipo"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/txtPrimerPokemon"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imgPrimerPokemon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgSextoPokemon"
+        android:layout_width="57dp"
+        android:layout_height="58dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imgPrimerPokemon"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imgPrimerPokemon"
+        app:layout_constraintTop_toBottomOf="@+id/imgPrimerPokemon"
+        app:layout_constraintVertical_bias="0.676"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imgSegundoPokemon"
+        android:layout_width="57dp"
+        android:layout_height="58dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imgPrimerPokemon"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imgPrimerPokemon"
+        app:layout_constraintTop_toBottomOf="@+id/imgPrimerPokemon"
+        app:layout_constraintVertical_bias="0.042"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imgQuintoPokemon"
+        android:layout_width="57dp"
+        android:layout_height="58dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imgPrimerPokemon"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imgPrimerPokemon"
+        app:layout_constraintTop_toBottomOf="@+id/imgPrimerPokemon"
+        app:layout_constraintVertical_bias="0.516"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/txtCuartoPokemon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imgCuartoPokemon"
+        app:layout_constraintEnd_toEndOf="@+id/txtPrimerPokemon"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtPrimerPokemon"
+        app:layout_constraintTop_toTopOf="@+id/imgCuartoPokemon"
+        app:layout_constraintVertical_bias="0.558" />
+
+    <ImageView
+        android:id="@+id/imgCuartoPokemon"
+        android:layout_width="57dp"
+        android:layout_height="58dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imgPrimerPokemon"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imgPrimerPokemon"
+        app:layout_constraintTop_toBottomOf="@+id/imgPrimerPokemon"
+        app:layout_constraintVertical_bias="0.352"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/txtPrimerPokemon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imgPrimerPokemon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgPrimerPokemon"
+        app:layout_constraintVertical_bias="0.205" />
+
+    <ImageView
+        android:id="@+id/imgTercerPokemon"
+        android:layout_width="57dp"
+        android:layout_height="58dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imgPrimerPokemon"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imgPrimerPokemon"
+        app:layout_constraintTop_toBottomOf="@+id/imgPrimerPokemon"
+        app:layout_constraintVertical_bias="0.204"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/txtSegundoPokemon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imgSegundoPokemon"
+        app:layout_constraintEnd_toEndOf="@+id/txtPrimerPokemon"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtPrimerPokemon"
+        app:layout_constraintTop_toTopOf="@+id/imgSegundoPokemon"
+        app:layout_constraintVertical_bias="0.529" />
+
+    <TextView
+        android:id="@+id/txtTercerPokemon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imgTercerPokemon"
+        app:layout_constraintEnd_toEndOf="@+id/txtPrimerPokemon"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtPrimerPokemon"
+        app:layout_constraintTop_toTopOf="@+id/imgTercerPokemon"
+        app:layout_constraintVertical_bias="0.647" />
+
+    <TextView
+        android:id="@+id/txtQuintoPokemon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imgQuintoPokemon"
+        app:layout_constraintEnd_toEndOf="@+id/txtPrimerPokemon"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtPrimerPokemon"
+        app:layout_constraintTop_toTopOf="@+id/imgQuintoPokemon"
+        app:layout_constraintVertical_bias="0.529" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

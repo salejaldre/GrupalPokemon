@@ -4,6 +4,217 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/rotombola2"
     tools:context=".Vistas.Datos">
+
+    <ImageView
+        android:id="@+id/imgfotopoke"
+        android:layout_width="315dp"
+        android:layout_height="387dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.055"
+        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+    <TextView
+        android:id="@+id/txtnombredatos"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FD000000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/imgfotopoke"
+        app:layout_constraintStart_toStartOf="@+id/imgfotopoke"
+        app:layout_constraintTop_toTopOf="@+id/imgfotopoke" />
+
+    <TextView
+        android:id="@+id/txttype1datos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgfotopoke"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txttype2datos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:fontFamily="@font/pokemonsolid"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txttype1datos"
+        app:layout_constraintStart_toEndOf="@+id/txttype1datos" />
+
+    <TextView
+        android:id="@+id/txthp"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/txttype1datos"
+        app:layout_constraintTop_toBottomOf="@+id/txttype1datos" />
+
+    <TextView
+        android:id="@+id/txtatk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/txthp"
+        app:layout_constraintStart_toEndOf="@+id/txthp"
+        app:layout_constraintTop_toTopOf="@+id/txthp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txtsat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/txthp"
+        app:layout_constraintStart_toEndOf="@+id/txtatk"
+        app:layout_constraintTop_toTopOf="@+id/txthp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txtSdef"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/txtspeed"
+        app:layout_constraintStart_toEndOf="@+id/txtdef"
+        app:layout_constraintTop_toTopOf="@+id/txtspeed"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txtspeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txttype1datos"
+        app:layout_constraintTop_toBottomOf="@+id/txthp"
+        app:layout_constraintVertical_bias="0.045" />
+
+    <TextView
+        android:id="@+id/txtdef"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/txtspeed"
+        app:layout_constraintStart_toEndOf="@+id/txtspeed"
+        app:layout_constraintTop_toTopOf="@+id/txtspeed"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imagenurl"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/flechaadelante"
+        app:layout_constraintStart_toEndOf="@+id/flechaatras"
+        app:layout_constraintTop_toBottomOf="@+id/txtnaturaleza"
+        app:layout_constraintVertical_bias="0.064"
+        app:srcCompat="@drawable/pokedex" />
+
+    <ImageView
+        android:id="@+id/flechaatras"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imagenurl"
+        app:layout_constraintStart_toStartOf="@+id/imgfotopoke"
+        app:layout_constraintTop_toTopOf="@+id/imagenurl"
+        app:srcCompat="@drawable/pokeballmenos" />
+
+    <ImageView
+        android:id="@+id/flechaadelante"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imagenurl"
+        app:layout_constraintEnd_toEndOf="@+id/imgfotopoke"
+        app:layout_constraintTop_toTopOf="@+id/imagenurl"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/pokeballmas" />
+
+    <TextView
+        android:id="@+id/txtnaturaleza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TextView"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/txtmovimientos"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toEndOf="@+id/txthabilidad"
+        app:layout_constraintTop_toBottomOf="@+id/txtmovimientos" />
+
+    <TextView
+        android:id="@+id/txthabilidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="TxtView"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/txtnaturaleza"
+        app:layout_constraintStart_toStartOf="@+id/txtmovimientos"
+        app:layout_constraintTop_toTopOf="@+id/txtnaturaleza"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/btshiny"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/txttype1datos"
+        app:layout_constraintEnd_toEndOf="@+id/imgfotopoke"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txttype2datos"
+        app:layout_constraintTop_toTopOf="@+id/txttype1datos"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/shynino" />
+
+    <ImageView
+        android:id="@+id/btatras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/btshiny"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintStart_toEndOf="@+id/txtnombredatos"
+        app:layout_constraintTop_toTopOf="@+id/imgfotopoke"
+        app:layout_constraintVertical_bias="0.063"
+        app:srcCompat="@android:drawable/ic_delete" />
+
+    <TextView
+        android:id="@+id/txtmovimientos"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/pokemonsolid"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/imgfotopoke"
+        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintStart_toStartOf="@+id/imgfotopoke"
+        app:layout_constraintTop_toBottomOf="@+id/txtspeed" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
