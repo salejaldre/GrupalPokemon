@@ -4,29 +4,28 @@ import static com.example.grupalpokemon.Controladores.Comunes.mensaje;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.ImageView;
+import android.widget.Spinner;
 
-import com.example.grupalpokemon.BBDD.Usuarios_ADO;
 import com.example.grupalpokemon.Modelos.Usuario;
 import com.example.grupalpokemon.R;
 
-import java.util.ConcurrentModificationException;
 import java.util.List;
 
 public class Login extends AppCompatActivity {
 
     private EditText txtusuario;
     private EditText txtpass;
-    private Button btnacceder;
-    private Button btnregistrarse;
+    private Spinner spinfaccion;
+    private ImageView btnacceder;
+    private ImageView btnregistrarse;
 
     private String user;
     private String pass;
+    private String faccion;
     private static Usuario datosuser;
     private static Usuarios_ADO userado;
     public static Usuario useractual;
@@ -40,82 +39,93 @@ public class Login extends AppCompatActivity {
         txtpass = findViewById(R.id.txtpass);
         btnacceder = findViewById(R.id.btnacceder);
         btnregistrarse = findViewById(R.id.btnregistrarse);
+        spinfaccion = findViewById(R.id.spinerfaccion);
 
         userado = new Usuarios_ADO(getApplicationContext());
-
+        useractual = new Usuario();
         btnregistrarse.setOnClickListener(v->{
 
-            user = txtusuario.getText().toString().trim();
-            pass = txtpass.getText().toString().trim();
-
+            recogerdatos();
 
 
             List<Usuario> todosusers = userado.getAll();
 
-            if (user.equals("") || pass.equals("")){
+            if (user.equals("") || pass.equals("")|| spinfaccion.getSelectedItemPosition()==0){
                 mensaje(getString(R.string.campovaciologin), this);
             } else {
 
-                int hola = 0;
-                boolean pez = true;
+                int posicion = 0;
+                boolean comprobarregistrar = true;
 
                 if(todosusers.size() == 0){
-                    objusuario(user, pass);
+                    faccion = spinfaccion.getSelectedItem().toString();
+                    objusuario(user, pass,faccion);
                 } else {
 
                     do {
-                        if (user.equals(todosusers.get(hola).getUser())) {
+                        if (user.equals(todosusers.get(posicion).getUser())) {
                             mensaje(getString(R.string.usuariyaregistrado), this);
-                            pez = false;
+                            comprobarregistrar = false;
                             break;
                         }
 
-                        hola++;
-                    } while (hola < todosusers.size());
+                        posicion++;
+                    } while (posicion < todosusers.size());
                 }
 
-                if(pez == true){
-
-                    objusuario(user, pass);
+                if(comprobarregistrar == true){
+                    faccion = spinfaccion.getSelectedItem().toString();
+                    objusuario(user, pass,faccion);
                     mensaje(getString(R.string.registradologin), this);
-
-                    txtusuario.setText("");
-                    txtpass.setText("");
+                    limpiar();
                 }
             }
         });
 
         btnacceder.setOnClickListener(v-> {
 
-            user = txtusuario.getText().toString().trim();
-            pass = txtpass.getText().toString().trim();
+            recogerdatos();
 
             if (user.equals("") || pass.equals("")) {
                 mensaje(getString(R.string.campovaciologin), this);
             } else{
 
-            if (userado.validarLogin(user, pass)) {
-                txtusuario.setText("");
-                txtpass.setText("");
-                useractual = new Usuario(user, pass);
-                Intent intent = new Intent(getApplicationContext(), Pantalla_Principal.class);
-                startActivity(intent);
-            } else {
-                if (Usuarios_ADO.datosusuario.size() == 0) {
-                    mensaje(getString(R.string.loginsindatos), this);
-
+                if (userado.validarLogin(user, pass)) {
+                    limpiar();
+                    useractual.setUser(user);
+                    useractual = userado.getUno();
+                    Intent intent = new Intent(getApplicationContext(), Pantalla_principal.class);
+                    startActivity(intent);
                 } else {
-                    mensaje(getString(R.string.errorlogin), this);
-                }
+                    if (Usuarios_ADO.datosusuario.size() == 0) {
+                        mensaje(getString(R.string.loginsindatos), this);
 
+                    } else {
+                        mensaje(getString(R.string.errorlogin), this);
+                    }
+
+                }
             }
-        }
 
         });
 
     }
-    private static void objusuario(String user, String pass){
-        datosuser = new Usuario(user, pass);
+
+    private void recogerdatos() {
+        user = txtusuario.getText().toString().trim();
+        pass = txtpass.getText().toString().trim();
+
+    }
+
+    private void limpiar() {
+        spinfaccion.setSelection(0);
+        txtusuario.setText("");
+        txtpass.setText("");
+    }
+
+
+    private static void objusuario(String user, String pass,String faccion){
+        datosuser = new Usuario(user, pass,faccion);
         userado.insertar(datosuser);
     }
 }
