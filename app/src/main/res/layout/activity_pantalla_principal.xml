@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondopokebal"
     tools:context=".Vistas.Pantalla_principal">
 
     <ImageView
@@ -30,6 +31,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.451"
         app:srcCompat="@drawable/botonr" />
+
+    <ImageView
+        android:id="@+id/btshow"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btlistaequipo"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/btlistapokemon"
+        app:layout_constraintTop_toBottomOf="@+id/btlistapokemon"
+        app:layout_constraintVertical_bias="0.34"
+        app:srcCompat="@drawable/botonp" />
 
     <ImageView
         android:id="@+id/btequipo"
@@ -63,6 +76,20 @@
         app:layout_constraintEnd_toEndOf="@+id/btnoak"
         app:layout_constraintStart_toStartOf="@+id/btnoak"
         app:layout_constraintTop_toTopOf="@+id/btnoak"
+        app:layout_constraintVertical_bias="0.444" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="Showdown"
+        android:textColor="#EFE4E4"
+        app:layout_constraintBottom_toBottomOf="@+id/btshow"
+        app:layout_constraintEnd_toEndOf="@+id/btshow"
+        app:layout_constraintStart_toStartOf="@+id/btshow"
+        app:layout_constraintTop_toTopOf="@+id/btshow"
         app:layout_constraintVertical_bias="0.444" />
 
     <TextView
@@ -106,4 +133,14 @@
         app:layout_constraintEnd_toEndOf="@+id/btlistapokemon"
         app:layout_constraintStart_toStartOf="@+id/btlistapokemon"
         app:layout_constraintTop_toTopOf="@+id/btlistapokemon" />
+
+    <ImageView
+        android:id="@+id/dummy"
+        android:layout_width="20dp"
+        android:layout_height="21dp"
+        android:clickable="false"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="5dp"
+        tools:srcCompat="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>
