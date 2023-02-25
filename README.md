@@ -146,7 +146,7 @@ Contiene todos los métodos necesarios para crear la base de datos y luego traba
 #JSON Pokemon (Sergio) (Editado a mano por Sergio, Diego y Guille)
 Todos los metodos necesarios para descargar el Json, guardarlo y trabajar con él
 
-#JSON ataques (Sergio)
+#JSON ataques (Sergio) (Editado a mano por Sergio)
 Todos los metodos necesarios para descargar el Json, guardarlo y trabajar con él
 
 #JSON Habilidades (Sergio) (Creado/Editado por Sergio)
