@@ -76,6 +76,14 @@ Una pantalla que te introduce un poco a la aplicación y te dice quienes la han 
 -ImageView
 -TextView
 
+Showdown (Sergio)
+Clase que permite visualizar los datos finales de tu equipo pokemon, y copiarlos para poder acceder
+a la pagina web de Pokemon Showdown e importar tu equipo.
+Si el equipo que te has creado es uno "real" y cumple con todas las normas de algun modo de juego de
+Pokemon Showdown podrás jugar una partida y probar tu equipo.
+Si te creas un equipo que no cumple con los requisitos solamente podrás jugar partidas privadas con
+amigos.
+
 Editor de tu equipo(AlertDialog) (Josemi) (*2):
 Dialogo que nos permite añadir o editar un pokemon a tu equipo
 -EditText para introducir el nombre del pokemon 
@@ -125,8 +133,15 @@ Adaptador Lista_Equipos (Sergio)
 Comunes (Guille)
 Métodos que se utilizan en más de una actividad
 
+Controlador AlertDialogs (Josemi)
+Métodos para crear todos los alertdialogs que usamos durante la aplicación
+
 #BBDD (Diego)
 Contiene todos los métodos necesarios para crear la base de datos y luego trabajar con ella
+    - DBHelper: Clase para crear las tablas de la base de datos
+    - Equipos ADO: Clase para trabajar sobre la tabla equipos
+    - Pokemon ADO: Clase para trabajar sobre la tabla pokemon
+    - Usuarios ADO: Clase para trabajar sobre la tabla usuarios
 
 #JSON Pokemon (Sergio) (Editado a mano por Sergio, Diego y Guille)
 Todos los metodos necesarios para descargar el Json, guardarlo y trabajar con él
