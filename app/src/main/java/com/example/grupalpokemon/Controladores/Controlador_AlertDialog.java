@@ -1,5 +1,5 @@
 package com.example.grupalpokemon.Controladores;
-import static com.example.grupalpokemon.Json.Json.objpokemon;
+import static com.example.grupalpokemon.Json.JsonPokemon.objpokemon;
 import static com.example.grupalpokemon.Vistas.Equipo.equipolocal;
 import static com.example.grupalpokemon.Vistas.Equipo.posicion;
 import static com.example.grupalpokemon.Vistas.Equipo.seleccionado;
