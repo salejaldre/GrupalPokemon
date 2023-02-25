@@ -2,11 +2,10 @@ package com.example.grupalpokemon.Controladores;
 
 import static com.example.grupalpokemon.Controladores.Comunes.colores;
 import static com.example.grupalpokemon.Controladores.Comunes.compcampodos;
+import static com.example.grupalpokemon.Controladores.Comunes.intentosdos;
 import static com.example.grupalpokemon.Controladores.Comunes.pintar;
 import static com.example.grupalpokemon.Vistas.MainActivity.listafiltrada;
 
-import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,24 +49,14 @@ public class Adaptador_Listado extends RecyclerView.Adapter<Adaptador_Listado.Vi
             holder.type2.setText("");
         }
 
-
         holder.itemView.setOnClickListener(v->{
             if(lista.size() != listafiltrada.size()){
-                intentos(0,v.getContext(),position);
+                intentosdos(v.getContext(),position,0,Datos.class);
             }else{
-                intentos(2,v.getContext(),position);
+                intentosdos(v.getContext(),position,2,Datos.class);
             }
         });
     }
-
-    private void intentos(int ruta, Context context, int position){
-
-        Intent intent = new Intent(context, Datos.class);
-        intent.putExtra("posicion",position);
-        intent.putExtra("ruta",ruta);
-        context.startActivity(intent);
-    }
-
 
     @Override
     public int getItemCount() {return lista.size();}

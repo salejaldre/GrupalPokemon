@@ -61,18 +61,17 @@ public class JsonPokemon extends AsyncTask<String, Void, String> {
         //añadir todos los datos de result en una lista
         JsonArray lista = jsonObject.getAsJsonArray();
 
-        //Guarda en un arraylist de tipo JsonObject todos los results
-        List<JsonObject> objeto = new ArrayList<>();
-        for (int i = 0; i < lista.size(); i++) {
-            objeto.add((JsonObject) lista.get(i));
-        }
-
-        //Guardar todos los datos del JSON en variables y añadirlas a un objeto de nuestra clase
-
         List<JsonObject> names = new ArrayList<>();
         List<JsonObject> bases = new ArrayList<>();
         List<JsonArray> types = new ArrayList<>();
-        for (int p = 0; p < objeto.size(); p++) {
+
+        //Guarda en un arraylist de tipo JsonObject todos los results
+        List<JsonObject> objeto = new ArrayList<>();
+        for (int p = 0; p < lista.size(); p++) {
+            objeto.add((JsonObject) lista.get(p));
+
+            //Guardar todos los datos del JSON en variables y añadirlas a un objeto de nuestra clase
+
             names.add((JsonObject) objeto.get(p).get("name"));
             bases.add((JsonObject) objeto.get(p).get("base"));
             types.add((JsonArray) objeto.get(p).get("type"));
@@ -95,7 +94,6 @@ public class JsonPokemon extends AsyncTask<String, Void, String> {
                         String.valueOf(objeto.get(p).get("urlpokedex")),String.valueOf(objeto.get(p).get("urlshiny")),
                         "","",""));
             }
-
         }
     }
 }

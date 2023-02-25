@@ -59,30 +59,26 @@ public class JsonHabilidades extends AsyncTask<String, Void, String> {
         //Guardar el json entero
         JsonArray jsonObject = gson.fromJson(result, JsonArray.class);
 
-        //JsonElement jsonElement = jsonObject;
-
         //añadir todos los datos de result en una lista
         JsonArray lista = jsonObject.getAsJsonArray();
+
+        List<JsonArray> abilities = new ArrayList<>();
+        List<JsonElement> elementsabilities = new ArrayList<>();
 
         //Guarda en un arraylist de tipo JsonObject todos los results
         List<JsonObject> objeto = new ArrayList<>();
         for (int i = 0; i < lista.size(); i++) {
             objeto.add((JsonObject) lista.get(i));
+            abilities.add((JsonArray) objeto.get(i).get("ability"));
         }
 
         //Guardar todos los datos del JSON en variables y añadirlas a un objeto de nuestra clase
 
-
-        List<JsonArray> abilities = new ArrayList<>();
-        List<JsonElement> elementsabilities = new ArrayList<>();
-
         for (int p = 0; p < objeto.size(); p++) {
-            abilities.add((JsonArray) objeto.get(p).get("ability"));
             for(int i = 0; i < 85; i++){
                 elementsabilities.add(abilities.get(0).get(i));
                 habilidadeslist.add(new Habilidades(String.valueOf(elementsabilities.get(i)).replace("\"", "")));
             }
-
         }
     }
 }

@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
+import com.example.grupalpokemon.BBDD.Usuarios_ADO;
 import com.example.grupalpokemon.Modelos.Usuario;
 import com.example.grupalpokemon.R;
 
@@ -47,11 +48,10 @@ public class Login extends AppCompatActivity {
 
             recogerdatos();
 
-
             List<Usuario> todosusers = userado.getAll();
 
             if (user.equals("") || pass.equals("")|| spinfaccion.getSelectedItemPosition()==0){
-                mensaje(getString(R.string.campovaciologin), this);
+                mensaje(getString(R.string.campovacio), this);
             } else {
 
                 int posicion = 0;
@@ -87,7 +87,7 @@ public class Login extends AppCompatActivity {
             recogerdatos();
 
             if (user.equals("") || pass.equals("")) {
-                mensaje(getString(R.string.campovaciologin), this);
+                mensaje(getString(R.string.campovacio), this);
             } else{
 
                 if (userado.validarLogin(user, pass)) {
@@ -108,7 +108,6 @@ public class Login extends AppCompatActivity {
             }
 
         });
-
     }
 
     private void recogerdatos() {
@@ -122,7 +121,6 @@ public class Login extends AppCompatActivity {
         txtusuario.setText("");
         txtpass.setText("");
     }
-
 
     private static void objusuario(String user, String pass,String faccion){
         datosuser = new Usuario(user, pass,faccion);

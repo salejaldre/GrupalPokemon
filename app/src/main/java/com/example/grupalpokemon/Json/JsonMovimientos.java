@@ -65,13 +65,8 @@ public class JsonMovimientos extends AsyncTask<String, Void, String> {
         List<JsonObject> objeto = new ArrayList<>();
         for (int i = 0; i < lista.size(); i++) {
             objeto.add((JsonObject) lista.get(i));
-        }
-
-        //Guardar todos los datos del JSON en variables y añadirlas a un objeto de nuestra clase
-
-        for (int p = 0; p < objeto.size(); p++) {
-            movimientos.add(new Ataques(String.valueOf(objeto.get(p).get("ename")).replace("\"", ""),
-                    String.valueOf(objeto.get(p).get("type")).replace("\"", "")));
+            movimientos.add(new Ataques(String.valueOf(objeto.get(i).get("ename")).replace("\"", ""),
+                    String.valueOf(objeto.get(i).get("type")).replace("\"", "")));
         }
     }
 }

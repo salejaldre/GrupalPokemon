@@ -3,9 +3,6 @@ package com.example.grupalpokemon.Modelos;
 public class Habilidades {
     String nombrehabilidad;
 
-    public Habilidades() {
-    }
-
     public Habilidades(String ability) {
         this.nombrehabilidad = ability;
     }
@@ -14,7 +11,4 @@ public class Habilidades {
         return nombrehabilidad;
     }
 
-    public void setAbility(String ability) {
-        this.nombrehabilidad = ability;
-    }
 }

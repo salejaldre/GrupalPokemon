@@ -3,6 +3,7 @@ package com.example.grupalpokemon.Modelos;
 import java.io.Serializable;
 
 public class Pokemon implements Serializable {
+
     int id;
     String name;
     String type1;
@@ -43,6 +44,7 @@ public class Pokemon implements Serializable {
         this.habilidad = habilidad;
         this.movimientos = movimientos;
         this.naturaleza = naturaleza;
+
     }
 
     public Pokemon(int id, String name, String type1, String type2, String hp, String attack, String defense, String spattack, String spdefense, String speed,  String url,String urlpokedex,String urlshiny,String naturaleza,String habilidad,String movimientos) {

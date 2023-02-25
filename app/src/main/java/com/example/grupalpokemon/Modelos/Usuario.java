@@ -11,7 +11,7 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(String user, String pass, String faccion) {
+    public Usuario(String user, String pass,String faccion) {
         this.user = user;
         this.pass = pass;
         this.faccion = faccion;
