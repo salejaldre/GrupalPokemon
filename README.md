@@ -161,6 +161,10 @@ Clase con los métodos necesarios para poder acceder a la imagen de internet del
 #Sonidos (Guille)
 Clase con los métodos necesarios para la implementación de sonidos a lo largo de la aplicación
 
+#Notificaciones del sistema (Sergio)
+Clase con dos métodos que permite la creación del canal para que funcionen las notificaciones y otro método
+para hacer la llamade de la notificación
+
 # lógica de negocio
 Toda la programación que organiza el funcionamiento de la aplicación (interface)
 
