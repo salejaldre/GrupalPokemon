@@ -217,21 +217,28 @@ public class Controlador_Equipo {
 
     }
 
+    private static void cambiarpokeball(ImageView pok1, ImageView pok2, ImageView pok3, ImageView pok4,
+                                        ImageView pok5, ImageView pok6, int q, int img){
+        if(q==0){pok1.setImageResource(img);}
+        if(q==1){pok2.setImageResource(img);}
+        if(q==2){pok3.setImageResource(img);}
+        if(q==3){pok4.setImageResource(img);}
+        if(q==4){pok5.setImageResource(img);}
+        if(q==5){pok6.setImageResource(img);}
+
+    }
+
     public static void comprobarequipocompleto(ImageView pok1, ImageView pok2, ImageView pok3, ImageView pok4,
                                                ImageView pok5, ImageView pok6,int op) {
         int bien = 0;
         for (int q = 0; q < equipolocal.size(); q++) {
 
             if (comprobartodoslosdatosdeunpokemon(equipolocal.get(q))) {
-
-                if(q==0){pok1.setImageResource(R.drawable.pokeballbien);}//else{pok1.setImageResource(R.drawable.pokeballmal);}
-                if(q==1){pok2.setImageResource(R.drawable.pokeballbien);}//else{pok2.setImageResource(R.drawable.pokeballmal);}
-                if(q==2){pok3.setImageResource(R.drawable.pokeballbien);}//else{pok3.setImageResource(R.drawable.pokeballmal);}
-                if(q==3){pok4.setImageResource(R.drawable.pokeballbien);}//else{pok4.setImageResource(R.drawable.pokeballmal);}
-                if(q==4){pok5.setImageResource(R.drawable.pokeballbien);}//else{pok5.setImageResource(R.drawable.pokeballmal);}
-                if(q==5){pok6.setImageResource(R.drawable.pokeballbien);}//else{pok6.setImageResource(R.drawable.pokeballmal);}
+                cambiarpokeball(pok1,pok2,pok3,pok4,pok5,pok6,q,R.drawable.pokeballbien);
 
                 bien++;
+            }else{
+                cambiarpokeball(pok1,pok2,pok3,pok4,pok5,pok6,q,R.drawable.pokeballmal);
             }
         }
         if (bien == 6) {
