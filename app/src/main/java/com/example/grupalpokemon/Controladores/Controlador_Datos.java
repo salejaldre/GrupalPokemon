@@ -13,15 +13,18 @@ import java.util.ArrayList;
 public class Controlador_Datos {
 
     public static void comprobarsiguiente(int posicion, ArrayList lista, ImageView flechaB, ImageView flechaA) {
-        if (posicion == 0) {
+        if(lista.size() == 1){
+            desactivarflechas(flechaB, flechaA);
+        } else if (posicion == 0) {
+            flechaA.setVisibility(View.VISIBLE);
             flechaB.setVisibility(View.INVISIBLE);
         } else if (posicion == lista.size() - 1) {
             flechaA.setVisibility(View.INVISIBLE);
+            flechaB.setVisibility(View.VISIBLE);
         } else {
             flechaB.setVisibility(View.VISIBLE);
             flechaA.setVisibility(View.VISIBLE);
         }
-
     }
 
     public static void desactivarflechas(ImageView flechaB, ImageView flechaA) {
