@@ -34,7 +34,7 @@
                 android:layout_height="35dp"
                 android:fontFamily="@font/pokemonholo"
                 android:text="TextView"
-                android:textColor="#BA2525"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
