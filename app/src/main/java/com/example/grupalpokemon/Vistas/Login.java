@@ -73,7 +73,7 @@ public class Login extends AppCompatActivity {
                     } while (posicion < todosusers.size());
                 }
 
-                if(comprobarregistrar == true){
+                if(comprobarregistrar){
                     faccion = spinfaccion.getSelectedItem().toString();
                     objusuario(user, pass,faccion);
                     mensaje(getString(R.string.registradologin), this);
