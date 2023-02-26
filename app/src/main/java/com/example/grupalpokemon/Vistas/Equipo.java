@@ -1,36 +1,29 @@
 package com.example.grupalpokemon.Vistas;
 
 
-import static com.example.grupalpokemon.Controladores.Comunes.mensaje;
-import static com.example.grupalpokemon.Controladores.Controlador_Equipo.*;
-import static com.example.grupalpokemon.Vistas.Login.useractual;
-import static com.example.grupalpokemon.Vistas.MainActivity.pokemonlist;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
+import static com.example.grupalpokemon.Controladores.Controlador_AlertDialogs.mostraralertaAnadir;
+import static com.example.grupalpokemon.Controladores.Controlador_AlertDialogs.mostraralertaMovs;
+import static com.example.grupalpokemon.Controladores.Controlador_Equipo.*;
+import static com.example.grupalpokemon.Vistas.Pantalla_principal.equipolocal;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
 
 import com.example.grupalpokemon.BBDD.Equipos_ADO;
 import com.example.grupalpokemon.BBDD.Pokemon_ADO;
-import com.example.grupalpokemon.Controladores.Controlador_AlertDialog;
+import com.example.grupalpokemon.Controladores.Comunes;
 import com.example.grupalpokemon.Menu.Menu;
 import com.example.grupalpokemon.Modelos.Pokemon;
 import com.example.grupalpokemon.R;
 import com.example.grupalpokemon.Sonidos.Sonidos;
 
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,120 +41,117 @@ public class Equipo extends Menu {
     public static ImageView img4;
     public static ImageView img5;
     public static ImageView img6;
-    private RadioButton rb1;
-    private RadioButton rb2;
-    private RadioButton rb3;
-    private RadioButton rb4;
-    private RadioButton rb5;
-    private RadioButton rb6;
-    public static String seleccionado;
+    public static ImageView impok1;
+    public static ImageView impok2;
+    public static ImageView impok3;
+    public static ImageView impok4;
+    public static ImageView impok5;
+    public static ImageView impok6;
+    public static RadioButton rb1;
+    public static RadioButton rb2;
+    public static RadioButton rb3;
+    public static RadioButton rb4;
+    public static RadioButton rb5;
+    public static RadioButton rb6;
     public static int posicion;
-    public static ArrayList<Pokemon> equipolocal;
-    private List<String> nombrecitos;
-    ImageView btn;
-    ImageView btnborrar;
-    ImageView btnguardar;
-    ImageView btnrandom;
-    Equipos_ADO ado;
-    Pokemon_ADO adop;
+    private List<String> equipolocalstrings;
+    public static ImageView btn;
+    public static ImageView btnmovs;
+    public static ImageView btnguardar;
+    public static ImageView btnrandom;
+    Equipos_ADO eado;
+    Pokemon_ADO pado;
     ConstraintLayout fondito;
+    public static Pokemon pokemonseleccionado;
+    android.app.AlertDialog alerta2;
+    android.app.AlertDialog alerta1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_equipo);
 
-        iniciarlabels();
+        cargarcampos();
         fondito.setBackgroundResource(comprobarfondo());
-        borrarequipos();
-        listaequipos(nombrecitos);
-        cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6,img1,img2,img3,img4,img5,img6);
+        mostrarequipolabels(pkmn1, pkmn2, pkmn3, pkmn4, pkmn5, pkmn6, img1, img2, img3, img4, img5, img6,
+                impok1,impok2,impok3,impok4,impok5,impok6);
+        comprobarequipocompleto(impok1,impok2,impok3,impok4,impok5,impok6,0);
 
-    btnrandom.setOnClickListener(v->{
-        if(comprobar(rb1,rb2,rb3,rb4,rb5,rb6,this,pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6)){
-        pokemonrandom(posicion);
-        cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6,img1,img2,img3,img4,img5,img6);
-        }
-
-    });
-
-    btnguardar.setOnClickListener(v->{
-        Sonidos.crearsonido(this,"guardar");
-        guardarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6,ado, (ArrayList<String>) nombrecitos);
-
-        });
-
-    btnborrar.setOnClickListener(v->{
-           borrarequipos();
-           cargarequipo(pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6,img1,img2,img3,img4,img5,img6);
-
-       });
-
-    btn.setOnClickListener(v->{
-
-   if(comprobar(rb1,rb2,rb3,rb4,rb5,rb6,this,pkmn1,pkmn2,pkmn3,pkmn4,pkmn5,pkmn6)){
-       mostraralerta(this);
-   }
-
-    });
-
-    clicables(pkmn1, equipolocal.get(0));
-    clicables(pkmn2, equipolocal.get(1));
-    clicables(pkmn3, equipolocal.get(2));
-    clicables(pkmn4, equipolocal.get(3));
-    clicables(pkmn5, equipolocal.get(4));
-    clicables(pkmn6, equipolocal.get(5));
-
-   }
-
-    private void clicables(TextView txt, Pokemon pokemn) {
-        txt.setOnClickListener(v -> {
-            intentico(pokemn);
-        });
-
-    }
-
-    private void mostraralerta(Context context){
-        EditText nombre;
-        Spinner spinnatura;
-
-        AlertDialog.Builder alerta = new AlertDialog.Builder(context);
         LayoutInflater layoutInflater = getLayoutInflater();
-        View vista = layoutInflater.inflate(R.layout.editarequipo_layout,null);
-        alerta.setView(vista);
-        alerta.setTitle("Elije Un Nuevo Pokemon");
 
-        nombre = vista.findViewById(R.id.camponombre);
-        spinnatura = vista.findViewById(R.id.spinnaturalezas);
+        clicradiobt(rb1);
+        clicradiobt(rb2);
+        clicradiobt(rb3);
+        clicradiobt(rb4);
+        clicradiobt(rb5);
+        clicradiobt(rb6);
 
-        nombre.setText(seleccionado);
+        txtclicables(pkmn1, 0);
+        txtclicables(pkmn2, 1);
+        txtclicables(pkmn3, 2);
+        txtclicables(pkmn4, 3);
+        txtclicables(pkmn5, 4);
+        txtclicables(pkmn6, 5);
 
 
-        alerta.setPositiveButton("Añadir", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                comprobarAlerta(nombre,spinnatura);
-                mensaje(context.getString(R.string.añadido),context);
+        btnrandom.setOnClickListener(v -> {
+            if (comprobar(rb1, rb2, rb3, rb4, rb5, rb6, this, pkmn1, pkmn2, pkmn3, pkmn4, pkmn5, pkmn6)) {
+                pokemonrandom(posicion);
+                mostrarequipolabels(pkmn1, pkmn2, pkmn3, pkmn4, pkmn5, pkmn6, img1, img2, img3, img4, img5, img6,
+                        impok1,impok2,impok3,impok4,impok5,impok6);
+                comprobarequipocompleto(impok1,impok2,impok3,impok4,impok5,impok6,0);
+                cerrarboton(btnmovs,true);
+            }
+
+        });
+
+        btnguardar.setOnClickListener(v -> {
+            Sonidos.crearsonido(this, "guardar");
+            guardarequipo(pkmn1, pkmn2, pkmn3, pkmn4, pkmn5, pkmn6, eado, (ArrayList<String>) equipolocalstrings);
+
+        });
+
+        btnmovs.setOnClickListener(v -> {
+            if (comprobar(rb1, rb2, rb3, rb4, rb5, rb6, this, pkmn1, pkmn2, pkmn3, pkmn4, pkmn5, pkmn6)) {
+                alerta1 = new android.app.AlertDialog.Builder(this).create();
+                mostraralertaMovs(this,alerta1,layoutInflater);
             }
         });
 
-        alerta.setNegativeButton("Cancelar",new DialogInterface.OnClickListener(){
+        btn.setOnClickListener(v -> {
 
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {}
+            if (comprobar(rb1, rb2, rb3, rb4, rb5, rb6, this, pkmn1, pkmn2, pkmn3, pkmn4, pkmn5, pkmn6)) {
+                alerta2 = new android.app.AlertDialog.Builder(this).create();
+                mostraralertaAnadir(this,alerta2,layoutInflater);
+            }
 
         });
-        alerta.show();
+
     }
 
-    private void intentico(Pokemon pokemon){
-        Intent intent = new Intent(this,Datos.class);
-        intent.putExtra("pokemon",pokemon);
-        intent.putExtra("ruta",9);
-        startActivity(intent);
+   private void clicradiobt(RadioButton ra) {
+
+       ra.setOnClickListener(v -> {
+               comprobarlabelspokemon(ra);
+       });
+   }
+
+    private void txtclicables(TextView txt, int ps) {
+
+        txt.setOnClickListener(v -> {
+
+            if ( comprobartxt(txt,"Pokemon1")|| comprobartxt(txt,"Pokemon4") ||
+                    comprobartxt(txt,"Pokemon5") || comprobartxt(txt,"Pokemon3") ||
+                    comprobartxt(txt,"Pokemon6") ||comprobartxt(txt,"Pokemon2")) {
+
+            } else {
+                Comunes.intentos(this,equipolocal.get(ps),9,Datos.class);
+            }
+        });
+
     }
 
-    private void iniciarlabels(){
+    private void cargarcampos() {
 
         pkmn1 = findViewById(R.id.pokemon1);
         pkmn2 = findViewById(R.id.pokemon2);
@@ -181,23 +171,25 @@ public class Equipo extends Menu {
         img4 = findViewById(R.id.imgpk4);
         img5 = findViewById(R.id.imgpk5);
         img6 = findViewById(R.id.imgpk6);
-
-        fondito = findViewById(R.id.fondito);
-
+        impok1= findViewById(R.id.pkcom1);
+        impok2= findViewById(R.id.pkcom2);
+        impok3= findViewById(R.id.pkcom3);
+        impok4= findViewById(R.id.pkcom4);
+        impok5= findViewById(R.id.pkcom5);
+        impok6= findViewById(R.id.pkcom6);
         btn = findViewById(R.id.boton);
-        btnborrar = findViewById(R.id.botonborrar);
+        btnmovs = findViewById(R.id.botonborrar);
         btnguardar = findViewById(R.id.botonguardar);
         btnrandom = findViewById(R.id.botonrandom);
-        nombrecitos = new ArrayList<String>();
-        for(int q = 0 ; q<6;q++){nombrecitos.add(q,"");}
+        fondito = findViewById(R.id.fondito);
 
-        adop = new Pokemon_ADO(this);
-        ado = new Equipos_ADO(this);
-        equipolocal = new ArrayList<>();
-        posicion=0;
-        seleccionado="";
-        nombrecitos = ado.getAll(nombrecitos);
+        pado = new Pokemon_ADO(this);
+        eado = new Equipos_ADO(this);
 
-   }
+        posicion = 0;
+        equipolocalstrings = arraystringlocal(eado);
+        pokemonseleccionado = new Pokemon();
+
+    }
 
 }
