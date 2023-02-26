@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="450dp"
-    android:background="@drawable/fondoequipodos">
+    android:background="@drawable/fondoequipopokemon">
 
     <TextView
         android:id="@+id/txtSextoPokemon"
