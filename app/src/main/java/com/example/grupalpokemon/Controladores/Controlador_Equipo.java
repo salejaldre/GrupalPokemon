@@ -1,6 +1,5 @@
 package com.example.grupalpokemon.Controladores;
 
-
 import static com.example.grupalpokemon.Controladores.Comunes.mensaje;
 import static com.example.grupalpokemon.Imagenes.Imagenes.mostrarImagen;
 import static com.example.grupalpokemon.Json.JsonHabilidades.habilidadeslist;
@@ -30,23 +29,24 @@ public class Controlador_Equipo {
 
     public static void guardarequipo(TextView pkmn1, TextView pkmn2, TextView pkmn3, TextView pkmn4, TextView pkmn5, TextView pkmn6, Equipos_ADO ado,ArrayList<String> nombrecitos){
         if(comprobarpokemon(pkmn1)&&comprobarpokemon(pkmn2)&&comprobarpokemon(pkmn3)&&comprobarpokemon(pkmn4)&&comprobarpokemon(pkmn5)&&comprobarpokemon(pkmn6)){
-        ArrayList<String> guardarequipo= new ArrayList<>(24);
+            ArrayList<String> guardarequipo= new ArrayList<>(24);
 
             guardarequipo.add(useractual.getUser());
+
             guardarequipo = guardarcamposequipo(guardarequipo);
+
             guardarequipo.add(useractual.getFaccion());
+            if(nombrecitos.get(0).equals("")){ado.insertar(guardarequipo);}
+            else{ado.update(guardarequipo);}
+            mensaje(pkmn1.getContext().getString(R.string.equipoguardado),pkmn1.getContext());
 
-        if(nombrecitos.get(0).equals("")){ado.insertar(guardarequipo);}
-        else{ado.update(guardarequipo);}
-        mensaje(pkmn1.getContext().getString(R.string.equipoguardado),pkmn1.getContext());
-
-    }
+        }
     }
 
     public static List<String> arraystringlocal(Equipos_ADO ado) {
-      List equipolocalstrings = new ArrayList<>();
+        List equipolocalstrings = new ArrayList<>();
         for (int q = 0; q < 24; q++) {equipolocalstrings.add(q,"");}
-         equipolocalstrings = ado.getEquipolocal(equipolocalstrings);
+        equipolocalstrings = ado.getEquipolocal(equipolocalstrings);
         return equipolocalstrings;
     }
 
@@ -60,16 +60,16 @@ public class Controlador_Equipo {
             valores.add(equipolocal.get(a).getNaturaleza());
 
         }
-       return valores;
+        return valores;
     }
 
-   private static boolean comprobarpokemon(TextView pkmon) {
+    private static boolean comprobarpokemon(TextView pkmon) {
         if(pkmon.getText().equals("Pokemon1")||pkmon.getText().equals("Pokemon2")||pkmon.getText().equals("Pokemon3")||
                 pkmon.getText().equals("Pokemon4")||pkmon.getText().equals("Pokemon5")||pkmon.getText().equals("Pokemon6")){
             return false;
         }
-       else{
-           return true;
+        else{
+            return true;
         }
 
     }
@@ -96,10 +96,10 @@ public class Controlador_Equipo {
 
         ArrayList<Pokemon> pokerandoms =pokemonlist;
         Collections.shuffle(pokerandoms);
-       Pokemon ran = pokerandoms.get(0);
-       ran.setNaturaleza("Naughty");
-       ran.setHabilidad("Libero");
-       ran.setMovimientos("Pound;Growl;Tail Whip;Scrath");
+        Pokemon ran = pokerandoms.get(0);
+        ran.setNaturaleza("Naughty");
+        ran.setHabilidad("Libero");
+        ran.setMovimientos("Pound;Growl;Tail Whip;Scrath");
         equipolocal.set(posicion,ran);
 
     }
@@ -110,9 +110,9 @@ public class Controlador_Equipo {
             for(int p=0;p<pokemonlist.size();p++){
                 if(pokemonlist.get(p).getName().equals(equipolocalstrings.get(q))){
                     Pokemon neupokemon = pokemonlist.get(p);
-                          neupokemon.setMovimientos(equipolocalstrings.get(q+1));
-                          neupokemon.setHabilidad(equipolocalstrings.get(q+2));
-                          neupokemon.setNaturaleza(equipolocalstrings.get(q+3));
+                    neupokemon.setMovimientos(equipolocalstrings.get(q+1));
+                    neupokemon.setHabilidad(equipolocalstrings.get(q+2));
+                    neupokemon.setNaturaleza(equipolocalstrings.get(q+3));
                     equipolocal.set(pos,neupokemon);
                     pos++;
                     break;
@@ -122,38 +122,38 @@ public class Controlador_Equipo {
     }
 
     public static void mostrarequipolabels(TextView pkmn1, TextView pkmn2, TextView pkmn3, TextView pkmn4,
-          TextView pkmn5, TextView pkmn6,ImageView img1, ImageView img2, ImageView img3, ImageView img4,
-          ImageView img5, ImageView img6,ImageView pok1,ImageView pok2,ImageView pok3,ImageView pok4,
-          ImageView pok5,ImageView pok6){
+                                           TextView pkmn5, TextView pkmn6,ImageView img1, ImageView img2, ImageView img3, ImageView img4,
+                                           ImageView img5, ImageView img6,ImageView pok1,ImageView pok2,ImageView pok3,ImageView pok4,
+                                           ImageView pok5,ImageView pok6){
 
         pkmn1.setText(equipolocal.get(0).getName());
-        if(!comprobartxt(pkmn1,"Pokemon1")){pok1.setVisibility(View.VISIBLE);}
+        if(!comprobirtxt(pkmn1,"Pokemon1")){pok1.setVisibility(View.VISIBLE);}
         pkmn2.setText(equipolocal.get(1).getName());
-        if(!comprobartxt(pkmn2,"Pokemon2")){pok2.setVisibility(View.VISIBLE);}
+        if(!comprobirtxt(pkmn2,"Pokemon2")){pok2.setVisibility(View.VISIBLE);}
         pkmn3.setText(equipolocal.get(2).getName());
-        if(!comprobartxt(pkmn3,"Pokemon3")){pok3.setVisibility(View.VISIBLE);}
+        if(!comprobirtxt(pkmn3,"Pokemon3")){pok3.setVisibility(View.VISIBLE);}
         pkmn4.setText(equipolocal.get(3).getName());
-        if(!comprobartxt(pkmn4,"Pokemon4")){pok4.setVisibility(View.VISIBLE);}
+        if(!comprobirtxt(pkmn4,"Pokemon4")){pok4.setVisibility(View.VISIBLE);}
         pkmn5.setText(equipolocal.get(4).getName());
-        if(!comprobartxt(pkmn5,"Pokemon5")){pok5.setVisibility(View.VISIBLE);}
+        if(!comprobirtxt(pkmn5,"Pokemon5")){pok5.setVisibility(View.VISIBLE);}
         pkmn6.setText(equipolocal.get(5).getName());
-        if(!comprobartxt(pkmn6,"Pokemon6")){pok6.setVisibility(View.VISIBLE);}
+        if(!comprobirtxt(pkmn6,"Pokemon6")){pok6.setVisibility(View.VISIBLE);}
         mostrarImagen(img1,equipolocal.get(0).getUrl());
         mostrarImagen(img2,equipolocal.get(1).getUrl());
         mostrarImagen(img3,equipolocal.get(2).getUrl());
         mostrarImagen(img4,equipolocal.get(3).getUrl());
-
         mostrarImagen(img5,equipolocal.get(4).getUrl());
         mostrarImagen(img6,equipolocal.get(5).getUrl());
     }
 
-    public static boolean comprobartxt(TextView txt,String poke){
+
+    public static boolean comprobirtxt(TextView txt,String poke){
 
         return txt.getText().equals(poke);
     }
 
     public static boolean comprobar(RadioButton rb1, RadioButton rb2, RadioButton rb3, RadioButton rb4, RadioButton rb5, RadioButton rb6, Context context,
-    TextView pkmn1,TextView pkmn2,TextView pkmn3,TextView pkmn4,TextView pkmn5,TextView pkmn6) {
+                                    TextView pkmn1,TextView pkmn2,TextView pkmn3,TextView pkmn4,TextView pkmn5,TextView pkmn6) {
 
         if(comprobarbotonseleccionado(rb1)){
             comprobarpokemonseleccionado(pkmn1);posicion = 0;}
@@ -172,36 +172,34 @@ public class Controlador_Equipo {
         }
         return true;
     }
-
     public static void comprobarpokemonseleccionado(TextView name){
 
-    for (int q = 0; q < equipolocal.size(); q++) {
-        if (name.getText().toString().equals(equipolocal.get(q).getName())) {
+        for (int q = 0; q < equipolocal.size(); q++) {
+            if (name.getText().toString().equals(equipolocal.get(q).getName())) {
 
-            pokemonseleccionado = equipolocal.get(q);
+                pokemonseleccionado = equipolocal.get(q);
 
-            break;
+                break;
+            }
         }
     }
-}
-
     public static void comprobarlabelspokemon(RadioButton rb){
-                cerrarboton(btn,true);cerrarboton(btnrandom,true);
-            if(rb.equals(rb1)&&!equipolocal.get(0).getName().equals("Pokemon1")){
-                cerrarboton(btnmovs,true);}
-            else  if(rb.equals(rb2)&&!equipolocal.get(1).getName().equals("Pokemon2")){
-                cerrarboton(btnmovs,true);}
-            else  if(rb.equals(rb3)&&!equipolocal.get(2).getName().equals("Pokemon3")){
-                cerrarboton(btnmovs,true);}
-            else  if(rb.equals(rb4)&&!equipolocal.get(3).getName().equals("Pokemon4")){
-                cerrarboton(btnmovs,true);}
-            else  if(rb.equals(rb5)&&!equipolocal.get(4).getName().equals("Pokemon5")){
-                cerrarboton(btnmovs,true);}
-            else  if(rb.equals(rb6)&&!equipolocal.get(5).getName().equals("Pokemon6")){
-                cerrarboton(btnmovs,true);}
-       else{
+        cerrarboton(btn,true);cerrarboton(btnrandom,true);
+        if(rb.equals(rb1)&&!equipolocal.get(0).getName().equals("Pokemon1")){
+            cerrarboton(btnmovs,true);}
+        else  if(rb.equals(rb2)&&!equipolocal.get(1).getName().equals("Pokemon2")){
+            cerrarboton(btnmovs,true);}
+        else  if(rb.equals(rb3)&&!equipolocal.get(2).getName().equals("Pokemon3")){
+            cerrarboton(btnmovs,true);}
+        else  if(rb.equals(rb4)&&!equipolocal.get(3).getName().equals("Pokemon4")){
+            cerrarboton(btnmovs,true);}
+        else  if(rb.equals(rb5)&&!equipolocal.get(4).getName().equals("Pokemon5")){
+            cerrarboton(btnmovs,true);}
+        else  if(rb.equals(rb6)&&!equipolocal.get(5).getName().equals("Pokemon6")){
+            cerrarboton(btnmovs,true);}
+        else{
             cerrarboton(btnmovs,false);
-    }
+        }
     }
 
     public static void rellenarspinerhabilidad(Spinner spinhabilidad) {
@@ -226,12 +224,12 @@ public class Controlador_Equipo {
 
             if (comprobartodoslosdatosdeunpokemon(equipolocal.get(q))) {
 
-                if(q==0){pok1.setImageResource(R.drawable.pokeballbien);}
-                if(q==1){pok2.setImageResource(R.drawable.pokeballbien);}
-                if(q==2){pok3.setImageResource(R.drawable.pokeballbien);}
-                if(q==3){pok4.setImageResource(R.drawable.pokeballbien);}
-                if(q==4){pok5.setImageResource(R.drawable.pokeballbien);}
-                if(q==5){pok6.setImageResource(R.drawable.pokeballbien);}
+                if(q==0){pok1.setImageResource(R.drawable.pokeballbien);}//else{pok1.setImageResource(R.drawable.pokeballmal);}
+                if(q==1){pok2.setImageResource(R.drawable.pokeballbien);}//else{pok2.setImageResource(R.drawable.pokeballmal);}
+                if(q==2){pok3.setImageResource(R.drawable.pokeballbien);}//else{pok3.setImageResource(R.drawable.pokeballmal);}
+                if(q==3){pok4.setImageResource(R.drawable.pokeballbien);}//else{pok4.setImageResource(R.drawable.pokeballmal);}
+                if(q==4){pok5.setImageResource(R.drawable.pokeballbien);}//else{pok5.setImageResource(R.drawable.pokeballmal);}
+                if(q==5){pok6.setImageResource(R.drawable.pokeballbien);}//else{pok6.setImageResource(R.drawable.pokeballmal);}
 
                 bien++;
             }
@@ -239,7 +237,7 @@ public class Controlador_Equipo {
         if (bien == 6) {
             if(op==0){  cerrarboton(btnguardar,true);}
 
-               cerrarboton(btshow,true);
+            cerrarboton(btshow,true);
 
         } else {
             if(op==0){   cerrarboton(btnguardar,false);}
@@ -248,8 +246,6 @@ public class Controlador_Equipo {
         }
 
     }
-
-
 
     public static boolean comprobartodoslosdatosdeunpokemon(Pokemon pokemon) {
         if (!pokemon.getMovimientos().equals("") &&
