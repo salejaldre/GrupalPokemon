@@ -1,3 +1,5 @@
+package com.example.grupalpokemon.Vistas;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,6 +15,7 @@ import com.example.grupalpokemon.Json.JsonPokemon;
 import com.example.grupalpokemon.Modelos.Pokemon;
 import com.example.grupalpokemon.R;
 import com.example.grupalpokemon.Sonidos.Sonidos;
+import com.example.grupalpokemon.Vistas.Login;
 
 import java.util.ArrayList;
 
