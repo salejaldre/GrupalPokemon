@@ -21,6 +21,7 @@ import com.example.grupalpokemon.BBDD.Pokemon_ADO;
 import com.example.grupalpokemon.Controladores.Comunes;
 import com.example.grupalpokemon.Menu.Menu;
 import com.example.grupalpokemon.Modelos.Pokemon;
+import com.example.grupalpokemon.Notificaciones.Notificaciones;
 import com.example.grupalpokemon.R;
 import com.example.grupalpokemon.Sonidos.Sonidos;
 
@@ -108,7 +109,7 @@ public class Equipo extends Menu {
         btnguardar.setOnClickListener(v -> {
             Sonidos.crearsonido(this, "guardar");
             guardarequipo(pkmn1, pkmn2, pkmn3, pkmn4, pkmn5, pkmn6, eado, (ArrayList<String>) equipolocalstrings);
-
+            Notificaciones.notificar(this,"Notificacion","Equipo Guardado");
         });
 
         btnmovs.setOnClickListener(v -> {
