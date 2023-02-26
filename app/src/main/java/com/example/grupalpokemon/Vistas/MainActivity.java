@@ -5,37 +5,33 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 
-import com.example.grupalpokemon.BBDD.Equipos_ADO;
 import com.example.grupalpokemon.BBDD.Pokemon_ADO;
-import com.example.grupalpokemon.Json.JsonPokemon;
+
 import com.example.grupalpokemon.Json.JsonHabilidades;
 import com.example.grupalpokemon.Json.JsonMovimientos;
-import com.example.grupalpokemon.Modelos.EquipoModelo;
+import com.example.grupalpokemon.Json.JsonPokemon;
 import com.example.grupalpokemon.Modelos.Pokemon;
 import com.example.grupalpokemon.R;
-import com.example.grupalpokemon.Vistas.Login;
+import com.example.grupalpokemon.Sonidos.Sonidos;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements JsonPokemon.DownloadJSONCallback, JsonMovimientos.DownloadJSONCallback, JsonHabilidades.DownloadJSONCallback{
     public static ArrayList<Pokemon> pokemonlist;
     public static ArrayList<Pokemon> listafiltrada;
-    //  public static ArrayList<EquipoModelo> listadeequipos;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listafiltrada = new ArrayList<>();
-        JsonPokemon downloadJson = new JsonPokemon(this);
-        JsonMovimientos downloadJsonDos = new JsonMovimientos(this);
-        JsonHabilidades downloadabilities = new JsonHabilidades(this);
-
-        downloadJsonDos.execute("https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/moves.json");
-        downloadabilities.execute("https://raw.githubusercontent.com/diurvi15/TrabajoGrupalBlackjack/main/soloabilitiesarray.json");
-        downloadJson.execute("https://raw.githubusercontent.com/diurvi15/TrabajoGrupalBlackjack/main/pokedexconshinys.json");
+        JsonPokemon downloadpokedex = new JsonPokemon(this);
+        JsonMovimientos downloadmovimientos = new JsonMovimientos(this);
+        JsonHabilidades downloadhabilidades = new JsonHabilidades(this);
+        Sonidos.crearsonidofondo(this);
+        downloadmovimientos.execute("https://raw.githubusercontent.com/salejaldre/GrupalPokemon/main/jsonmovimientos.json");
+        downloadhabilidades.execute("https://raw.githubusercontent.com/salejaldre/GrupalPokemon/main/jsonHabilidades.json");
+        downloadpokedex.execute("https://raw.githubusercontent.com/salejaldre/GrupalPokemon/main/jsonPokedex.json");
 
     }
 
@@ -45,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements JsonPokemon.Downl
         handler.postDelayed(()-> {
 
             Pokemon_ADO pado = new Pokemon_ADO(this);
-            //  pado.insertAll(); //PA CUANDO SE JODA LA BBDD
 
             cargarbasesdatos(pado);
 
@@ -56,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements JsonPokemon.Downl
 
             Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
-        }, 500);
+        }, 1500);
 
     }
     private void cargarbasesdatos(Pokemon_ADO pado){
@@ -64,12 +59,14 @@ public class MainActivity extends AppCompatActivity implements JsonPokemon.Downl
         pokemonlist = (ArrayList<Pokemon>) pado.getAll();
     }
 
+
     @Override
-    public void onDownloadJSONAbilityComplete(String result) {
+    public void onDownloadJSONHabilidadesComplete(String result) {
 
     }
 
     @Override
-    public void onDownloadJSONDosComplete(String result) {
+    public void onDownloadJSONMovimientosComplete(String result) {
 
     }
+}

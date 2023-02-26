@@ -3,13 +3,69 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="370dp">
+    android:layout_height="480dp">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dialogmovimientos480" />
+
+    <ImageView
+        android:id="@+id/btatrasa2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btacepa2"
+        app:layout_constraintStart_toStartOf="@+id/mov3"
+        app:layout_constraintTop_toTopOf="@+id/btacepa2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/botony" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="Atras"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/btatrasa2"
+        app:layout_constraintEnd_toEndOf="@+id/btatrasa2"
+        app:layout_constraintStart_toStartOf="@+id/btatrasa2"
+        app:layout_constraintTop_toTopOf="@+id/btatrasa2" />
+
+    <ImageView
+        android:id="@+id/btacepa2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="@+id/mov4"
+        app:layout_constraintHorizontal_bias="0.657"
+        app:layout_constraintStart_toStartOf="@+id/mov4"
+        app:layout_constraintTop_toBottomOf="@+id/mov4"
+        app:srcCompat="@drawable/botong" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="Añadir"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/btacepa2"
+        app:layout_constraintEnd_toEndOf="@+id/btacepa2"
+        app:layout_constraintStart_toStartOf="@+id/btacepa2"
+        app:layout_constraintTop_toTopOf="@+id/btacepa2" />
 
     <ImageView
         android:id="@+id/imgsel"
         android:layout_width="150dp"
         android:layout_height="140dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +89,6 @@
         android:id="@+id/tipo2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:fontFamily="@font/pokemonsolid"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="@+id/imgsel"
@@ -42,11 +97,11 @@
     <Spinner
         android:id="@+id/mov1"
         android:layout_width="165dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="10dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/mov2"
         app:layout_constraintEnd_toEndOf="@+id/tipo1"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.26"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/mov2"
         app:layout_constraintVertical_bias="0.0" />
@@ -54,8 +109,8 @@
     <Spinner
         android:id="@+id/mov4"
         android:layout_width="165dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="@+id/mov2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/mov2"
@@ -64,20 +119,33 @@
     <Spinner
         android:id="@+id/mov2"
         android:layout_width="165dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="@+id/tipo2"
         app:layout_constraintTop_toBottomOf="@+id/tipo2" />
 
     <Spinner
         android:id="@+id/mov3"
         android:layout_width="165dp"
-        android:layout_height="38dp"
+        android:layout_height="41dp"
         app:layout_constraintBottom_toBottomOf="@+id/mov4"
         app:layout_constraintEnd_toEndOf="@+id/mov1"
         app:layout_constraintStart_toStartOf="@+id/mov1"
         app:layout_constraintTop_toTopOf="@+id/mov4" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="Introduce los nuevos movimientos"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/imgsel"
+        app:layout_constraintEnd_toEndOf="@+id/mov2"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/mov1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

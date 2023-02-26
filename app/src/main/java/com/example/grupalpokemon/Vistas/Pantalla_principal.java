@@ -1,3 +1,4 @@
+
 import static com.example.grupalpokemon.Controladores.Comunes.mensaje;
 import static com.example.grupalpokemon.Controladores.Controlador_Equipo.arraystringlocal;
 import static com.example.grupalpokemon.Controladores.Controlador_Equipo.comprobarequipocompleto;
@@ -5,7 +6,6 @@ import static com.example.grupalpokemon.Controladores.Controlador_Equipo.creareq
 import static com.example.grupalpokemon.Controladores.Controlador_Equipo.rellenarequipolocal;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -14,11 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.grupalpokemon.BBDD.Equipos_ADO;
 import com.example.grupalpokemon.Modelos.Pokemon;
 import com.example.grupalpokemon.R;
-import com.example.grupalpokemon.Sonidos.Sonidos;
-import com.example.grupalpokemon.Vistas.Creditos_Oak;
-import com.example.grupalpokemon.Vistas.Equipo;
-import com.example.grupalpokemon.Vistas.Lista_Equipos;
-import com.example.grupalpokemon.Vistas.Listado;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +28,7 @@ public class Pantalla_principal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_principal);
-        Sonidos.crearsonidofondo(this);
+
         ImageView dummy = findViewById(R.id.dummy);
         ImageView bt1= findViewById(R.id.btlistapokemon);
         ImageView bt2= findViewById(R.id.btequipo);
@@ -43,14 +38,11 @@ public class Pantalla_principal extends AppCompatActivity {
 
         cargarequipolocal();
 
-        clics(bt1, Listado.class);
-        clics(bt3, Creditos_Oak.class);
-        clics(bt2, Equipo.class);
+        clics(bt1,Listado.class);
+        clics(bt3,Creditos_Oak.class);
+        clics(bt2,Equipo.class);
+        clics(btshow,Showdown.class);
 
-        btshow.setOnClickListener(v -> {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.pokemonshowdown.com/teambuilder"));
-            startActivity(browserIntent);
-        });
 
         bt4.setOnClickListener(v->{
             Equipos_ADO eado = new Equipos_ADO(this);

@@ -50,4 +50,63 @@
         app:layout_constraintStart_toStartOf="@+id/camponombre"
         app:layout_constraintTop_toBottomOf="@+id/spinnaturalezas" />
 
+    <ImageView
+        android:id="@+id/btacepa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/spinhabilidad"
+        app:srcCompat="@drawable/botong" />
+
+    <ImageView
+        android:id="@+id/btatrasa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btacepa"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/btacepa"
+        app:srcCompat="@drawable/botony" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="Añadir"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/btacepa"
+        app:layout_constraintEnd_toEndOf="@+id/btacepa"
+        app:layout_constraintStart_toStartOf="@+id/btacepa"
+        app:layout_constraintTop_toTopOf="@+id/btacepa" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="Atras"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/btatrasa"
+        app:layout_constraintEnd_toEndOf="@+id/btatrasa"
+        app:layout_constraintStart_toStartOf="@+id/btatrasa"
+        app:layout_constraintTop_toTopOf="@+id/btatrasa" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/pokemonsolid"
+        android:text="Elige Un Nuevo Pokemon"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/camponombre"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/imageView8" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
