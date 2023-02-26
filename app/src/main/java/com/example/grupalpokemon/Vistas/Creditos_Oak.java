@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.example.grupalpokemon.R;
 
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Creditos_Oak extends AppCompatActivity {
 
