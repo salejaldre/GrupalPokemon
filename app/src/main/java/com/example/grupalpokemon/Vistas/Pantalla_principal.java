@@ -1,3 +1,4 @@
+package com.example.grupalpokemon.Vistas;
 
 import static com.example.grupalpokemon.Controladores.Comunes.mensaje;
 import static com.example.grupalpokemon.Controladores.Controlador_Equipo.arraystringlocal;

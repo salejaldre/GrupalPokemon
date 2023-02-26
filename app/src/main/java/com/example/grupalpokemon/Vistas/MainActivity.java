@@ -13,6 +13,7 @@ import com.example.grupalpokemon.Json.JsonHabilidades;
 import com.example.grupalpokemon.Json.JsonMovimientos;
 import com.example.grupalpokemon.Json.JsonPokemon;
 import com.example.grupalpokemon.Modelos.Pokemon;
+import com.example.grupalpokemon.Notificaciones.Notificaciones;
 import com.example.grupalpokemon.R;
 import com.example.grupalpokemon.Sonidos.Sonidos;
 import com.example.grupalpokemon.Vistas.Login;
@@ -50,7 +51,10 @@ public class MainActivity extends AppCompatActivity implements JsonPokemon.Downl
             if(pokemonlist.size()==0){
                 pado.insertAll();
                 cargarbasesdatos(pado);
+                
             }
+
+            Notificaciones.creacrionDelCanalNotis(this);
 
             Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
