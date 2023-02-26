@@ -11,13 +11,14 @@ import android.os.Bundle;
 
 import com.example.grupalpokemon.BBDD.Pokemon_ADO;
 import com.example.grupalpokemon.Controladores.Adaptador_Listado;
+import com.example.grupalpokemon.Menu.Menu;
 import com.example.grupalpokemon.Modelos.Pokemon;
 import com.example.grupalpokemon.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Listado extends AppCompatActivity {
+public class Listado extends Menu {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
