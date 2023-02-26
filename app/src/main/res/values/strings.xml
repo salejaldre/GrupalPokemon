@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">GrupalPokemon</string>
+    <string name="titulodatos">Datos Pokemon</string>
+    <string name="titulolista">Lista Pokedex</string>
+    <string name="tituloequipo">Tu Equipo Pokemon</string>
+    <string name="tituloequipolista">Equipos Pokemon</string>
+    <string name="tituloshow">Showdown</string>
 
-    <string name="noseleccion">Selecciona un campo de tu equipo</string>
     <string name="añadido">Pokemon agregado al Equipo</string>
     <string name="noencontrado">Pokemon no encontrado</string>
-    <string name="equipomal">Tiene que rellenar todo el equipo</string>
     <string name="equipoguardado">Equipo Guardado</string>
 
     <string name="textouno">Hola, soy el Profesor Pokemon,he encargado al mejor equipo de desarrolladores de Android
@@ -12,14 +15,17 @@
     <string name="textodos">Esta aplicacion permitira a los entrenadores mirar los datos de los pokemon y hacerse un equipo a su gusto</string>
     <string name="textotres">Muchas gracias a los desarrolladores : Sergio Alejaldre,Diego Urmente,Guillermo Fabian, Josemi y Daniel Gimenez</string>
 
-    <string name="campovaciologin">Debes introducir los dos campos</string>
+    <string name="campovacio">Error, Hay Campos Vacios</string>
     <string name="loginsindatos">No hay ningun usuario registrado aun, registrese antes</string>
-    <string name="errorlogin">LOGIN ERRONEO</string>
+    <string name="errorlogin">Login Erroneo</string>
     <string name="registradologin">Usuario registrado correctamente</string>
     <string name="usuariyaregistrado">Ese usuario ya esta registrado</string>
     <string name="filtrarerror">Introduce un nombre o un tipo para filtrar</string>
-    <string name="naturalezaerror">Introduce una Naturaleza</string>
+
     <string name="nohayequipo">No hay Equipos</string>
+
+    <string name="barraene">\n</string>
+
 
     <string-array name="spinnerfiltrar">
         <item> Seleccione Tipo </item>

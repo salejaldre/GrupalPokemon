@@ -15,24 +15,33 @@
         android:theme="@style/Theme.GrupalPokemon"
         tools:targetApi="31">
         <activity
-            android:name=".Vistas.Login"
-            android:theme="@style/Fullscreen"
+            android:name=".Vistas.Showdown"
+            android:label="@string/tituloshow"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Vistas.Login"
+            android:exported="false"
+            android:theme="@style/Fullscreen">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".Vistas.Lista_Equipos"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/tituloequipolista">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".Vistas.Creditos_Oak"
-            android:theme="@style/Fullscreen"
-            android:exported="false">
+            android:exported="false"
+            android:theme="@style/Fullscreen">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -46,37 +55,40 @@
         </activity>
         <activity
             android:name=".Vistas.Equipo"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/tituloequipo">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".Vistas.Datos"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/titulodatos">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".Vistas.Pantalla_principal"
-            android:theme="@style/Fullscreen"
-            android:exported="false">
+            android:exported="false"
+            android:theme="@style/Fullscreen">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".Vistas.Listado"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/titulolista">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".Vistas.MainActivity"
-            android:theme="@style/Fullscreen"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
