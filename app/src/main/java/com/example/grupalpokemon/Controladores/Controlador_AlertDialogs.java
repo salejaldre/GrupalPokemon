@@ -183,7 +183,6 @@ public class Controlador_AlertDialogs extends AppCompatActivity {
         btacep.setOnClickListener(v->{
             comprobarAlertados(pokemonseleccionado, mov1, mov2, mov3, mov4,alerta);
             equipolocal.set(posicion, pokemonseleccionado);
-
         });
 
         finalalerta(alerta,vista,btatras);
@@ -201,32 +200,29 @@ public class Controlador_AlertDialogs extends AppCompatActivity {
 
     public static void comprobarAlerta(EditText campo, Spinner spin,Spinner spinh,AlertDialog alerta) {
         String nombre = campo.getText().toString();
-        if(!nombre.trim().equals("")){
 
+        if(!nombre.trim().equals("")){
             for(int q=0;q<pokemonlist.size();q++){
                 if(nombre.equals(pokemonlist.get(q).getName())){
+                    if(spin.getSelectedItemPosition()!=0&&spinh.getSelectedItemPosition()!=0) {
 
-                    if(spin.getSelectedItemPosition()!=0&&spinh.getSelectedItemPosition()!=0){
-
-                        Sonidos.crearsonido(campo.getContext(),"nuevo");
-                        equipolocal.set(posicion,pokemonlist.get(q));
+                        Sonidos.crearsonido(campo.getContext(), "nuevo");
+                        equipolocal.set(posicion, pokemonlist.get(q));
                         equipolocal.get(posicion).setMovimientos("");
                         equipolocal.get(posicion).setNaturaleza(spin.getSelectedItem().toString());
                         equipolocal.get(posicion).setHabilidad(spinh.getSelectedItem().toString());
 
-
                         mostrarequipolabels(pkmn1, pkmn2, pkmn3, pkmn4, pkmn5, pkmn6, img1, img2, img3, img4, img5, img6,
-                                impok1,impok2,impok3,impok4,impok5,impok6);
-                        comprobarequipocompleto(impok1,impok2,impok3,impok4,impok5,impok6,0);
-                        cerrarboton(btnmovs,true);
+                                impok1, impok2, impok3, impok4, impok5, impok6);
+                        comprobarequipocompleto(impok1, impok2, impok3, impok4, impok5, impok6, 0);
+                        cerrarboton(btnmovs, true);
+                        mensaje(campo.getContext().getString(R.string.añadido), campo.getContext());
                         alerta.dismiss();
                         break;
-
-                    }else{mensaje(campo.getContext().getString(R.string.campovacio), campo.getContext());}
-
-                }else if(q == pokemonlist.size())mensaje(campo.getContext().getString(R.string.noencontrado),campo.getContext());
+                    }else {mensaje(campo.getContext().getString(R.string.campovacio), campo.getContext()); break;}
+                }else if(q==pokemonlist.size()-1){mensaje(campo.getContext().getString(R.string.noencontrado),campo.getContext()); break;}
             }
-        }
+        }else {mensaje(campo.getContext().getString(R.string.noencontrado),campo.getContext());}
     }
 
     public static void comprobarAlertados(Pokemon pk, Spinner mov1, Spinner mov2, Spinner mov3, Spinner mov4,AlertDialog alerta) {
@@ -244,7 +240,5 @@ public class Controlador_AlertDialogs extends AppCompatActivity {
 
         }
         comprobarequipocompleto(impok1,impok2,impok3,impok4,impok5,impok6,0);
-
     }
-
 }
